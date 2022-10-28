@@ -1,0 +1,36 @@
+#Card {
+    border: 2px solid green;
+    width: 70vw;
+    height: 90vh;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    box-shadow: 5px 5px 15px rgb(192, 196, 200);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.8s ease;
+    text-align: center;
+}
+
+.front {
+    position: absolute;
+    backface-visibility: hidden;
+    font-size: 20px;
+    font-weight: bold;
+    color: grey;
+    
+    width: fill;
+    height: fill;
+}
+
+.back {
+    width: fill;
+    height: fill;
+    position: absolute;
+    backface-visibility: hidden;
+    color: black;
+    transform: rotateY(180deg)
+}
+
+.Flip {
+    transform: rotateY(180deg)
+}

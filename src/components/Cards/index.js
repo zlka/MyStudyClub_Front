@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import './Card.css'
 
-const Card = () => {
+const Card = (props) => {
     const [isActive, setActive ] = useState("false")
 
     const onCardClick = () => {
@@ -11,10 +11,10 @@ const Card = () => {
         <>
         <div className ={ isActive ? "Flip" : null } id="Card" onClick={onCardClick} >
         <div className="front">
-            <h1>front</h1>
+            <h1>{props.front}</h1>
         </div>
         <div className="back">
-            <h1>back</h1>
+            <h1>{props.back}</h1>
         </div>
         </div>
         </>

@@ -5,7 +5,6 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-
 }
 
 #arrow {
@@ -14,6 +13,5 @@
 
 .progress {
     align-self: flex-start;
-    text-align: center;
 }
 

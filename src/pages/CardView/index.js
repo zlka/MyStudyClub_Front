@@ -12,10 +12,20 @@ const CardView = () => {
         { id: 4, question: "question 4", answer: "answer 4" }
     ]
     const nextQuestion = () => {
-        setCardId(cardId => cardId + 1)
-    };
+        if (cardId < flashcards.length -1) {
+            setCardId(cardId => cardId + 1)
+            console.log("id",cardId)
+        } else  {
+            setCardId(cardId)
+        }}
+    
+
     const previousQuestion = () => {
-        setCardId(cardId => cardId - 1)
+        if (cardId > 0 ) {
+            setCardId(cardId => cardId - 1)
+        } else {
+            setCardId(0)
+        }
     };
 
     return (
@@ -33,3 +43,9 @@ const CardView = () => {
 };
 
 export default CardView
+// const nextQuestion = () => {
+//     if (cardId < flashcards.length) {
+//         setCardId(cardId => cardId + 1)
+//     } else (cardId == flashcards[cardId]) 
+//         setCardId(flashcards.length -1 )
+//     }

@@ -1,6 +1,6 @@
 #Card {
     border: 2px solid green;
-    width: 90vw;
+    width: 70vw;
     height: 90vh;
     border-radius: 15px;
     background-color: whitesmoke;
@@ -8,14 +8,16 @@
     position: relative;
     transform-style: preserve-3d;
     transition: all 0.8s ease;
+    text-align: center;
 }
 
 .front {
     position: absolute;
     backface-visibility: hidden;
-    background: orangered;
-    color: red;
-    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: grey;
+    
     width: fill;
     height: fill;
 }
@@ -25,8 +27,7 @@
     height: fill;
     position: absolute;
     backface-visibility: hidden;
-    background: plum;
-    color: purple;
+    color: black;
     transform: rotateY(180deg)
 }
 

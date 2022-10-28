@@ -3,11 +3,12 @@ import './CardView.css'
 import { Card } from '../../components'
 
 const CardView = () => {
+    
+
     return (
         <>
             <div className="Cards">
                 <Card />
-
             </div>
         </>
     )

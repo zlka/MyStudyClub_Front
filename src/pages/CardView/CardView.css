@@ -1,0 +1,17 @@
+.Cards{
+    border:2px solid red;
+    height: 98vh;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Card {
+    border: 2px solid green;
+    width: 90vw;
+    height: 90vh;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    box-shadow: 5px 5px 15px rgb(192, 196, 200);
+}

@@ -1,8 +1,14 @@
 import React from 'react'
-
+import './CardView.css'
 const CardView = () => {
     return(
-        <h1> FlashCards here</h1>
+        <>
+        <div className="Cards">
+            <div className='Card'>
+
+            </div>
+        </div>
+        </>
     )
 };
 

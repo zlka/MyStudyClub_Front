@@ -17,8 +17,8 @@
   "scripts": {
     "dev": " set PORT=8080 && react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject" ,
+    "test": "react-scripts test --setupFilesAfterEnv ./src/test/setupTests.js"
   },
   "eslintConfig": {
     "extends": [

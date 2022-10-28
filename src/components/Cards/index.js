@@ -9,7 +9,7 @@ const Card = (props) => {
     };
     return(
         <>
-        <div className ={ isActive ? "Flip" : null } id="Card" onClick={onCardClick} >
+        <div role="turn" className ={ isActive ? "Flip" : null } id="Card" onClick={onCardClick} >
         <div className="front">
             <h1>{props.front}</h1>
         </div>

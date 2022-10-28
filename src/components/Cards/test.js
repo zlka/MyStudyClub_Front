@@ -8,7 +8,7 @@ describe('Card', () => {
     })
     
     test("it flips the card on click", () => {
-        const cardContainer= screen.getByRole("turn")
+        const cardContainer= screen.getByRole("switch")
         userEvent.click(cardContainer)
         expect(cardContainer.className).toBe("flip")
     })

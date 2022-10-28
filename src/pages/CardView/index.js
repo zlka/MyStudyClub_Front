@@ -42,17 +42,17 @@ const CardView = () => {
    
     return (
         <>
-        <div  id="Cards">
+        <div role="main" id="Cards">
         <CaretLeftFill id="arrow" onClick={previousQuestion}/>
             { statusMessage ? statusMessage : 
-            <div > 
+            <div aria-label="flashcards" > 
                 <h2 className='progress'>{ flashcards[cardId].id} / {flashcards.length} </h2>
-                <div>
+                <div  >
                 <Card front={flashcards[cardId].question} back={flashcards[cardId].answer} />
                 </div>  
             </div>
             }
-        <CaretRightFill id="arrow" onClick={nextQuestion} />
+        <CaretRightFill role='figure' id="arrow" onClick={nextQuestion} />
         </div>
         </>
     )

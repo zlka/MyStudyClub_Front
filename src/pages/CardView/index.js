@@ -1,13 +1,14 @@
 import React from 'react'
 import './CardView.css'
+import { Card } from '../../components'
+
 const CardView = () => {
-    return(
+    return (
         <>
-        <div className="Cards">
-            <div className='Card'>
+            <div className="Cards">
+                <Card />
 
             </div>
-        </div>
         </>
     )
 };

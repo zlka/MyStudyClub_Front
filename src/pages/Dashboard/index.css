@@ -1,0 +1,9 @@
+.table-container {
+    height: 60rem;
+    width: 60rem;
+    border-style: solid;
+    border-color: grey;
+    margin: 10px;
+    border-width: 12px;
+}
+

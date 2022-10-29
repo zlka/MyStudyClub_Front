@@ -8,12 +8,12 @@ function App() {
   const { token, removeToken, setToken } = useToken()
 
   return (
-    <div className="App">
-      <Header token={removeToken}/>
-        {/* ensures user must have a token */}
-        {!token && token!=="" && token !== undefined ? 
-        <Login setToken={setToken} /> 
-    :(
+    // <div className="App">
+    //   <Header token={removeToken}/>
+    //     {/* ensures user must have a token */}
+    //     {!token && token!=="" && token !== undefined ? 
+    //     <Login setToken={setToken} /> 
+    // :(
       <>  
       <Routes>
           <Route path="" element={<Home/>}></Route>
@@ -24,8 +24,4 @@ function App() {
       </>
     )}
       
-    </div>
-  );
-}
-
 export default App;

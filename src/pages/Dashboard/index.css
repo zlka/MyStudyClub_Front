@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Poor+Story&family=Shadows+Into+Light&display=swap');
+body{
+    font-family: 'Shadows Into Light'
+}
+.main-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.header {
+    width: 100%;
+    background-color: Azure;
+    border-style: solid;
+    border-color: grey;
+    margin: 1rem;
+    border-width: 12px;
+    text-align: center;
+}
+
+.table-container {
+    height: 60rem;
+    width: 72.95rem;
+    background-color: Azure;
+    border-style: solid;
+    border-color: grey;
+    margin: 1rem;
+    border-width: 12px;
+}
+
+.upcoming-container {
+    height: 60rem;
+    width: 30rem;
+    background-color: Azure;
+    border-style: solid;
+    border-color: grey;
+    margin: 1rem;
+    border-width: 12px;
+    text-align: center;
+}
+

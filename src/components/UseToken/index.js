@@ -1,8 +1,6 @@
-import {useState} from react 
-import React from 'react'
+import React, {useState} from "react"
 
-function useToken() {
-
+const useToken = () => {
 	// retrieve the token stored in the localStorage and only returns if exists
 	function getToken() {
 		const userToken = localStorage.getItem('token')
@@ -22,4 +20,13 @@ function useToken() {
 		localStorage.removeItem('token')
 		setToken(null)
 	}
+
+  return {
+    setToken: saveToken,
+    token,
+    removeToken
+  }
 }
+
+export default useToken
+

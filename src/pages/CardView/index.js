@@ -3,18 +3,19 @@ import './CardView.css';
 import axios from 'axios';
 import { Card } from '../../components'
 import { CaretLeftFill, CaretRightFill } from 'react-bootstrap-icons';
+import { ArrowLeftShort } from 'react-bootstrap-icons';
 import { useEffect } from 'react';
 
 const CardView = () => {
     const [cardId, setCardId] = useState(0)
     const [flashcards, setFlashcards] = useState([])
-    const [ statusMessage, setStatusMessage ] = useState('Loading');
+    const [statusMessage, setStatusMessage] = useState('Loading');
 
-    useEffect( () => {
+    useEffect(() => {
         const fetchFlashcards = async () => {
             setStatusMessage('Loading')
             try {
-                let {data} = await axios.get('https://my-study-club.herokuapp.com/flashcards/1')
+                let { data } = await axios.get('https://my-study-club.herokuapp.com/flashcards/1')
                 setFlashcards(data)
                 setStatusMessage('')
             } catch (err) {
@@ -23,17 +24,18 @@ const CardView = () => {
             }
         }
         fetchFlashcards()
-    },[])
+    }, [])
 
     const nextQuestion = () => {
-        if (cardId < flashcards.length -1) {
+        if (cardId < flashcards.length - 1) {
             setCardId(cardId => cardId + 1)
-        } else  {
+        } else {
             setCardId(cardId)
-        }}
+        }
+    }
 
     const previousQuestion = () => {
-        if (cardId > 0 ) {
+        if (cardId > 0) {
             setCardId(cardId => cardId - 1)
         } else {
             setCardId(0)
@@ -41,15 +43,15 @@ const CardView = () => {
     };
     return (
         <>
-        <div role="main" id="Cards">
-            <CaretLeftFill id="arrow" onClick={previousQuestion}/>
-            <> 
-                <h2>{ statusMessage ? statusMessage : `${flashcards[cardId].id} / ${flashcards.length}` } </h2>
-                    <section aria-label = "card">
-                       {!statusMessage && <Card front={flashcards[cardId].question} back={flashcards[cardId].answer} /> }
-                    </section>  
-            </>
-            <CaretRightFill role='figure' id="arrow" onClick={nextQuestion} />
+            <div role="main" id="Cards">
+            <h2 >{statusMessage ? statusMessage : `${flashcards[cardId].id} / ${flashcards.length}`} </h2>           
+                <CaretLeftFill id="arrow" onClick={previousQuestion} />
+                <>
+                    <div aria-label="card">
+                        {!statusMessage && <Card front={flashcards[cardId].question} back={flashcards[cardId].answer} />}
+                    </div>
+                </>
+                <CaretRightFill role='figure' id="arrow" onClick={nextQuestion} />
             </div>
         </>
     )

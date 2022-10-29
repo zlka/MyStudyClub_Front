@@ -9,32 +9,32 @@ body{
 }
 
 .header {
-    width: 100%;
+    width: 100vw;
     background-color: Azure;
     border-style: solid;
     border-color: grey;
-    margin: 1rem;
+    margin: 1vw;
     border-width: 12px;
     text-align: center;
 }
 
 .table-container {
-    height: 60rem;
-    width: 72.95rem;
+    height: 60vh;
+    width: 65.99vw;
     background-color: Azure;
     border-style: solid;
     border-color: grey;
-    margin: 1rem;
+    margin: 1vw;
     border-width: 12px;
 }
 
 .upcoming-container {
-    height: 60rem;
-    width: 30rem;
+    height: 60vh;
+    width: 30vw;
     background-color: Azure;
     border-style: solid;
     border-color: grey;
-    margin: 1rem;
+    margin: 1vw;
     border-width: 12px;
     text-align: center;
 }

@@ -9,12 +9,12 @@ const Card = (props) => {
     };
     return(
         <>
-        <div role="switch" className ={ isActive ? "Flip" : null } id="Card" onClick={onCardClick} >
+        <div role="switch" aria-checked="true" className ={ isActive ? "Flip" : null } id="Card" onClick={onCardClick} >
         <div className="front">
-            <h1>{props.front}</h1>
+            <h1 aria-label="cardFront">{props.front}</h1>
         </div>
         <div className="back">
-            <h1>{props.back}</h1>
+            <h1 aria-label="cardBack">{props.back}</h1>
         </div>
         </div>
         </>

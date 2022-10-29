@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import './CardView.css'
-import axios from 'axios'
+import React, { useState } from 'react';
+import './CardView.css';
+import axios from 'axios';
 import { Card } from '../../components'
 import { CaretLeftFill, CaretRightFill } from 'react-bootstrap-icons';
 import { useEffect } from 'react';
@@ -19,7 +19,7 @@ const CardView = () => {
                 setStatusMessage('')
             } catch (err) {
                 console.warn(err)
-                setStatusMessage(`Oops there\'s been an issue! ${err.message}`)
+                setStatusMessage(`Oops there's been an issue! ${err.message}`)
             }
         }
         fetchFlashcards()
@@ -39,24 +39,38 @@ const CardView = () => {
             setCardId(0)
         }
     };
-   
     return (
         <>
         <div role="main" id="Cards">
-        <CaretLeftFill id="arrow" onClick={previousQuestion}/>
-            { statusMessage ? statusMessage : 
-            <div aria-label="flashcards" > 
-                <h2 className='progress'>{ flashcards[cardId].id} / {flashcards.length} </h2>
-                <div  >
-                <Card front={flashcards[cardId].question} back={flashcards[cardId].answer} />
-                </div>  
+            <CaretLeftFill id="arrow" onClick={previousQuestion}/>
+            <> 
+                <h2>{ statusMessage ? statusMessage : `${flashcards[cardId].id} / ${flashcards.length}` } </h2>
+                    <section aria-label = "card">
+                       {!statusMessage && <Card front={flashcards[cardId].question} back={flashcards[cardId].answer} /> }
+                    </section>  
+            </>
+            <CaretRightFill role='figure' id="arrow" onClick={nextQuestion} />
             </div>
-            }
-        <CaretRightFill role='figure' id="arrow" onClick={nextQuestion} />
-        </div>
         </>
     )
 
 };
 
+
+
 export default CardView
+
+// <>
+//         <div role="main" id="Cards">
+//         <CaretLeftFill id="arrow" onClick={previousQuestion}/>
+//             { statusMessage ? statusMessage : 
+//             <div > 
+//                 <h1 className='progress'>{ flashcards[cardId].id} / {flashcards.length} </h1>
+//                 <div >
+//                 <Card front={flashcards[cardId].question} back={flashcards[cardId].answer} />
+//                 </div>  
+//             </div>
+//             }
+//         <CaretRightFill role='figure' id="arrow" onClick={nextQuestion} />
+//         </div>
+//         </>

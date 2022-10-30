@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import './CardView.css';
 import axios from 'axios';
 import { Card } from '../../components'
-import { CaretLeftFill, CaretRightFill } from 'react-bootstrap-icons';
-import { ArrowLeftShort } from 'react-bootstrap-icons';
-import { useEffect } from 'react';
+import { CaretLeftFill,CaretRightFill } from 'react-bootstrap-icons';
 
 const CardView = () => {
     const [cardId, setCardId] = useState(0)
@@ -43,15 +41,12 @@ const CardView = () => {
     };
     return (
         <>
-        <p> exit</p>
             <div role="main" id="Cards">
-            <h2>{ statusMessage ? statusMessage : <Card progress={`${flashcards[cardId].id} / ${flashcards.length}`} />}</h2>      
+            <h3>{ statusMessage ? statusMessage : <Card progress={`${flashcards[cardId].id} / ${flashcards.length}`} />}</h3>      
                 <CaretLeftFill id="arrow" onClick={previousQuestion} />
-                <>
                     <div aria-label="card" id="card">
                         {!statusMessage && <Card front={flashcards[cardId].question} back={flashcards[cardId].answer} />}
                     </div>
-                </>
                 <CaretRightFill role='figure' id="arrow" onClick={nextQuestion} />
             </div>
         </>
@@ -62,18 +57,3 @@ const CardView = () => {
 
 
 export default CardView
-
-// <>
-//         <div role="main" id="Cards">
-//         <CaretLeftFill id="arrow" onClick={previousQuestion}/>
-//             { statusMessage ? statusMessage : 
-//             <div > 
-//                 <h1 className='progress'>{ flashcards[cardId].id} / {flashcards.length} </h1>
-//                 <div >
-//                 <Card front={flashcards[cardId].question} back={flashcards[cardId].answer} />
-//                 </div>  
-//             </div>
-//             }
-//         <CaretRightFill role='figure' id="arrow" onClick={nextQuestion} />
-//         </div>
-//         </>

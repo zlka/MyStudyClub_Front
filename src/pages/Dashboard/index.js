@@ -1,6 +1,7 @@
 import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
 import './index.css'
+
+import DashboardContent from '../../components/Dashboard';
 
 function Dashboard() {
   return (
@@ -56,28 +57,7 @@ function Dashboard() {
         backgroundColor: 'lightpink',
         fontSize: '20px'
       }}>
-        <tr>
-          <td>History 101</td>
-          <td>1 Set</td>
-          <td style={{
-            width: '4rem'
-          }}><Button>Go</Button>{' '}</td>
-        </tr>
-        <tr>
-
-          <td>Driving Theory Test</td>
-          <td>3 Sets</td>
-          <td style={{
-            width: '4rem'
-          }}><Button>Go</Button>{' '}</td>
-        </tr>
-        <tr>
-          <td>Maths 10NR</td>
-          <td>4 Sets</td>
-          <td style={{
-            width: '4rem'
-          }}><Button>Go</Button>{' '}</td>
-        </tr>
+       <DashboardContent />
       </tbody>
     </Table>
     </div>

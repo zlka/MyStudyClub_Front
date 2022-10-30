@@ -43,11 +43,12 @@ const CardView = () => {
     };
     return (
         <>
+        <p> exit</p>
             <div role="main" id="Cards">
-            <h2 >{statusMessage ? statusMessage : `${flashcards[cardId].id} / ${flashcards.length}`} </h2>           
+            <h2>{ statusMessage ? statusMessage : <Card progress={`${flashcards[cardId].id} / ${flashcards.length}`} />}</h2>      
                 <CaretLeftFill id="arrow" onClick={previousQuestion} />
                 <>
-                    <div aria-label="card">
+                    <div aria-label="card" id="card">
                         {!statusMessage && <Card front={flashcards[cardId].question} back={flashcards[cardId].answer} />}
                     </div>
                 </>

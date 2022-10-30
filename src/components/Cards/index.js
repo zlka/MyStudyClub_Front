@@ -9,6 +9,8 @@ const Card = (props) => {
     };
     return(
         <>
+        <h3>{props.progress}</h3>
+
         <div role="switch" aria-checked="true" className ={ isActive ? "Flip" : null } id="Card" onClick={onCardClick} >
         <div className="front">
             <h1 aria-label="cardFront">{props.front}</h1>

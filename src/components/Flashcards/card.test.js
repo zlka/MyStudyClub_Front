@@ -1,10 +1,11 @@
 import { screen } from '@testing-library/react';
 import { Card } from '..';
-
+import { createRoot } from 'react-dom/client';
+// const root = createRoot('Card');
 
 describe('Card', () => {
     beforeEach( () => {
-       render(<Card />)
+        render(<Card />)
     })
     
     test("it flips the card on click", () => {
@@ -12,5 +13,5 @@ describe('Card', () => {
         userEvent.click(cardContainer)
         expect(cardContainer.className).toBe("Flip")
     })
-
+    
 })

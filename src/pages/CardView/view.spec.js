@@ -1,6 +1,9 @@
 import { screen,waitFor } from '@testing-library/react';
 import { CardView } from '..';
 import { Card } from '../../components'
+import { createRoot } from 'react-dom/client';
+// const container = document.getElementById('app');
+// const root = createRoot(container);
 
 import axios from 'axios';
 jest.mock('axios');

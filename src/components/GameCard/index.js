@@ -2,7 +2,7 @@ import React from 'react'
 import './card.css'
 
 const GameCard = ({card,id,onCardClick}) => {
-    const cardClass = card.match ? card.match : ""
+    let cardClass = card.match ? card.match : ""
     return (
         <div className="gameCard" onClick={() => onCardClick(id) }>
             <div>

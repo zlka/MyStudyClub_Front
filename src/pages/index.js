@@ -1,3 +1,4 @@
 export { default as CardView } from './CardView'
 export { default as Dashboard } from './Dashboard'
 export { default as Home } from './Home'
+export { default as Registration } from './Registration'

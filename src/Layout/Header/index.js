@@ -1,5 +1,6 @@
 import axios from "axios"
 
+
 function Header(props) {
 
   function logMeOut() {
@@ -21,6 +22,7 @@ function Header(props) {
 
   return(
     <header className="App-Header">
+      <p>Header</p>
       <button onClick={logMeOut}>
         Logout
       </button>

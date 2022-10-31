@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 
 
-const Login = (props) => {
+const LoginForm = (props) => {
 
   const [loginForm, setLoginForm] = useState({
     email: "",
@@ -65,4 +65,4 @@ const Login = (props) => {
   )
 }
 
-export default Login
+export default LoginForm

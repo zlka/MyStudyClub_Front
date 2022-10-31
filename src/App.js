@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { CardView, Dashboard, Home, Login, Game } from './pages';
-import { useToken, Profile, LoginForm, Cards } from './components'
+import { useToken, Profile, SignIn } from './components'
 import { Header, Footer } from './Layout'
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
 					<Route index path="/" element={<Home />}></Route>
 					{/* ensures user must have a token */}
 					<Route path='/login/*' element={!token && token !== "" && token !== undefined ?
-						<LoginForm setToken={setToken} />
+						<Login />
 						: (
 							<>
 							<Routes>

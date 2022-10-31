@@ -15,14 +15,12 @@
 
 .gameCard.wrong {
     border: 2px solid #ffb703;
-    /* background-color: #fae4ab; */
     animation: shake 0.1s ease-in-out 0s 2;
     
 }
 
 .gameCard.correct{
-    /* background-color: #b5c99a; */
-    color: black;
+    color: #6a994e;
     border: 2px solid #7cb518;
     border-radius: 6px;
     box-shadow: none;

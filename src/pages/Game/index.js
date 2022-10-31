@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import './game.css'
-import { GameCard } from '../../components'
+import { GameCard,Timer } from '../../components'
 
 const Game = () => {
     const [Cards, setCards ] = useState([])
@@ -21,7 +21,7 @@ const Game = () => {
             }
         }
         fetchFlashcards()
-    }, [])
+    }, []) // move to another page and call?
 
     const shuffleCards = (cards) => {
         let shuffledCards = []
@@ -34,27 +34,20 @@ const Game = () => {
     }
 
     const onCardClick = (id) => {
-        // console.log("id",id)
         if( clickId === -1) { 
             setClickId(id) 
-        } else { // on second click
+        } else { 
             check(id)
         }
     };
 
     const check = (current) => {
         if (Cards[current].id === Cards[clickId].id){
-            // console.log('first click id',Cards[current])
-            // console.log('second click id',Cards[clickId])
             Cards[current].match= "correct"
             Cards[clickId].match="correct"
             setCards([...Cards])
-            // console.log('newCards', Cards)
             setClickId(-1)
         } else {
-            // console.log('wrong current',Cards[current].id)
-            // console.log('wrong comparison',Cards[clickId].id)
-            // console.log('newCards', Cards)
             Cards[current].match="wrong"
             Cards[clickId].match="wrong"
             setCards([...Cards])
@@ -67,14 +60,20 @@ const Game = () => {
         }
     }
 
+
     return (
-        <>
+        <div className="main">
+        <div>
+        <h1><Timer /></h1>
+
+        </div>
         <div className='card-grid'>
+            
             {Cards.map((card,i) => (
                 <GameCard key={i} id={i} card={card} onCardClick={onCardClick}/>
             ))}
         </div>
-        </>
+        </div>
     )
 
 };

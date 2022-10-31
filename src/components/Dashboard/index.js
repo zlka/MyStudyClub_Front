@@ -1,34 +1,41 @@
 import React from 'react'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button';
+import { useEffect, useState } from 'react';
+import { render } from 'react-dom';
 
-const DashboardContent = () => {
-    // let data = await axios.get("https://my-study-club.herokuapp.com/studentclubs/1")
-    // data = data.data
+const Resolver = (props) => {
+    // console.log(props.then)
+    props.data.then((result) => {
+    console.log(result)
+    return(
+      result.map((cell, index) => {
 
-    let data = [['History 101','2 Sets'],['Maths Final Exam','4 Sets']]
+        return(
+ 
+        <tr key={index}>
+        <td>{cell[index]}</td>
+        <td>{cell[index + 1]}</td>
+        <td style={{
+          width: '4rem'
+          
+        }}><Button>Go</Button>{' '}</td>
+        {console.log(cell)}
+        
+        </tr>       
 
-    return (
+        
+      )})
+    
+  )
+})
+  
 
-    <>
-
-        {data.map((cell, index) => {
-            console.log(cell[1])
-            return (
-                <tr>
-                      <td>{cell[index]}</td>
-                      <td>{cell[1]}</td>
-                      <td style={{
-                        width: '4rem'
-                      }}><Button>Go</Button>{' '}</td>
-                    </tr>
-              )
-        })}
-            </>
-    )
-    }
-
-
+}
 
 
-export default DashboardContent
+
+
+
+
+export default Resolver;

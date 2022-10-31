@@ -1,28 +1,38 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { CardView, Dashboard, Home, Game} from './pages';
-import { useToken, Header, Profile, Login, Cards } from './components'
+import { CardView, Dashboard, Home, Login, Game } from './pages';
+import { useToken, Profile, LoginForm, Cards } from './components'
+import { Header, Footer } from './Layout'
 
 function App() {
 
-  const { token, removeToken, setToken } = useToken()
+	const { token, removeToken, setToken } = useToken()
 
-  return (
-    // <div className="App">
-    //   <Header token={removeToken}/>
-    //     {/* ensures user must have a token */}
-    //     {!token && token!=="" && token !== undefined ? 
-    //     <Login setToken={setToken} /> 
-    // :(
-      <>  
-      <Routes>
-          <Route path="" element={<Home/>}></Route>
-          <Route path='profile' element={<Profile token={token} setToken={setToken} />}></Route>
-          <Route path="dashboard" element={<Dashboard />}></Route>
-          <Route path="practise" element={<CardView />}></Route>
-          <Route path="test" element={<Game />}></Route>
-      </Routes>
-      </>
-    )}
-      
+	return (
+		<div className="App">
+			<main>
+			<Header token={removeToken} />
+				<Routes>
+					<Route index path="/" element={<Home />}></Route>
+					{/* ensures user must have a token */}
+					<Route path='/login/*' element={!token && token !== "" && token !== undefined ?
+						<LoginForm setToken={setToken} />
+						: (
+							<>
+							<Routes>
+								<Route path='/profile' element={<Profile token={token} setToken={setToken} />}></Route>
+								<Route path="/dashboard" element={<Dashboard />}></Route>
+								<Route path="practise" element={<CardView />}></Route>
+								<Route path="test" element={<Game />}></Route>
+							</Routes>
+							</>
+						)}>
+					</Route>
+				</Routes>
+			<Footer />
+			</main>
+		</div>
+	);
+}
+
 export default App;

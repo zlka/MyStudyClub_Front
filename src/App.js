@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { CardView, Dashboard, Home, Login, Game } from './pages';
-import { useToken, Profile, LoginForm } from './components'
+import { useToken, Profile, SignIn } from './components'
 import { Header, Footer } from './Layout'
 
 function App() {

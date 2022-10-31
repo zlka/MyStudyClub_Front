@@ -1,5 +1,5 @@
 import React from 'react'
-import { LoginForm, useToken } from '../../components'
+import { SignIn, useToken } from '../../components'
 
 const Login = () => {
 
@@ -8,7 +8,7 @@ const Login = () => {
   return (
     <div>
       <h2>Hello I'm the Login Page</h2>
-      <LoginForm setToken={setToken}/>
+      <SignIn setToken={setToken}/>
     </div>
   )
 }

@@ -30,7 +30,7 @@
     "eject": "react-scripts eject",
     "test": "react-scripts test --setupFilesAfterEnv ./src/test/setupTests.js",
     "coverage": "npm test -- --coverage"
-     },
+  },
   "eslintConfig": {
     "extends": [
       "react-app",

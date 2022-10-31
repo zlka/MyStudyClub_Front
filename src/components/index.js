@@ -1,4 +1,4 @@
-export { default as DashboardContent } from './Dashboard'
+export { default as Resolver } from './Dashboard'
 export { default as Card } from './Flashcards'
 export { default as GameCard } from './GameCard'
 export { default as Header } from './Header'

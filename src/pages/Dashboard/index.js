@@ -1,9 +1,28 @@
 import Table from 'react-bootstrap/Table';
 import './index.css'
+import axios from 'axios';
+import {useEffect, useState } from 'react';
 
-import DashboardContent from '../../components/Dashboard';
+import { Resolver } from '../../components';
+
 
 function Dashboard() {
+
+  
+  const [data, setData] = useState();
+  async function getData() {
+  
+    let grab = await axios("https://my-study-club.herokuapp.com/studentclubs/1")
+      .then((result) => {
+      return (result.data) 
+    })
+      .then((result => {
+        return(result)
+      })) 
+    return grab }
+  let response = (getData().then((result => {
+    return(result)
+  })))
   return (
     <>
     <div className="main-container">
@@ -57,7 +76,7 @@ function Dashboard() {
         backgroundColor: 'lightpink',
         fontSize: '20px'
       }}>
-       <DashboardContent />
+       <Resolver data={response}/>
       </tbody>
     </Table>
     </div>

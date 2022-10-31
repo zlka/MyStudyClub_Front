@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import './Card.css'
+import './flashcard.css'
 
 const Card = (props) => {
     const [isActive, setActive ] = useState("false")
@@ -9,12 +9,14 @@ const Card = (props) => {
     };
     return(
         <>
-        <div className ={ isActive ? "Flip" : null } id="Card" onClick={onCardClick} >
+        <>{props.progress}</>
+
+        <div role="switch" aria-checked="true" className ={ isActive ? "Flip" : null } id="Card" onClick={onCardClick} >
         <div className="front">
-            <h1>{props.front}</h1>
+            <h1 aria-label="cardFront">{props.front}</h1>
         </div>
         <div className="back">
-            <h1>{props.back}</h1>
+            <h1 aria-label="cardBack">{props.back}</h1>
         </div>
         </div>
         </>

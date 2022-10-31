@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { CardView, Dashboard, Home, Login } from './pages';
-import { useToken, Profile, LoginForm } from './components'
+import { CardView, Dashboard, Home, Login, Game } from './pages';
+import { useToken, Profile, LoginForm, Cards } from './components'
 import { Header, Footer } from './Layout'
 
 function App() {
@@ -20,10 +20,10 @@ function App() {
 						: (
 							<>
 							<Routes>
-							<Route path='/profile' element={<Profile />}></Route>
-							<Route path="/dashboard" element={<Dashboard />}></Route>
-							<Route path="/view" element={<CardView />}></Route>
-
+								<Route path='/profile' element={<Profile token={token} setToken={setToken} />}></Route>
+								<Route path="/dashboard" element={<Dashboard />}></Route>
+								<Route path="practise" element={<CardView />}></Route>
+								<Route path="test" element={<Game />}></Route>
 							</Routes>
 							</>
 						)}>

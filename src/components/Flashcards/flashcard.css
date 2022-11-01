@@ -1,0 +1,42 @@
+#Card {
+    /* border: 2px solid green; */
+    width: 70vw;
+    height: 90vh;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 5px 5px 15px rgb(192, 196, 200);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.8s ease;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+.front, .back {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    backface-visibility: hidden;
+    font-size: 20px;
+    font-weight: bold;
+    width: fit-content;
+    height: fill;
+    margin: 0% 10%;
+}
+
+.front {
+    color: grey;
+}
+
+.back {
+    color: black;
+    transform: rotateY(180deg)
+}
+
+.Flip {
+    transform: rotateY(180deg)
+}
+
+

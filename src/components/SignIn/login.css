@@ -1,0 +1,33 @@
+.login {
+    /* border: 2px solid pink; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 20px;
+}
+
+#formInput{
+    border: none;
+    border-bottom: 1px solid grey;
+    outline:none
+}
+#formInput:hover{
+    border-bottom: 1px solid #56cfe1;
+}
+
+#formInput:focus{
+    outline:none
+}
+
+#submit:hover{
+    background-color: whitesmoke;
+    border-radius: 15px;
+    width: fit-content
+
+}
+#submit{
+    width: fit-content;
+    align-self: center
+}
+
+

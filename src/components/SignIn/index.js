@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import './login.css'
 
 
 const SignIn = (props) => {
@@ -47,14 +48,36 @@ const SignIn = (props) => {
   return (
 
   <div>
-    <Form className='login'>
+
+
+
+<form className="login">
+    <label>Email address</label>
+      <input onChange={handleChange}
+        type="email"
+        text={loginForm.email}
+        name="email"
+        id="formInput"
+        value={loginForm.email} />
+     <label>Password</label>
+     <input onChange={handleChange}
+        type="password"
+        text={loginForm.password}
+        name="password"
+        id="formInput"
+        value={loginForm.password} />
+
+      <button id="submit" onClick={logMeIn}>Log In</button>
+    </form>
+    {/* <Form className='login'>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
+        <label>Email address</label>
         <Form.Control onChange={handleChange}
         type="email"
         text={loginForm.email}
         name="email"
-        placeholder="Enter email"
+        id="formInput"
+        // placeholder="Enter email"
         value={loginForm.email}/>
         <Form.Text className="text-muted" >
           We'll never share your email with anyone else.
@@ -67,34 +90,19 @@ const SignIn = (props) => {
         type="password"
         text={loginForm.password}
         name="password"
-        placeholder="Password"
+        id="formInput"
+        // placeholder="Password"
         value={loginForm.password}/>
-      </Form.Group>
+      </Form.Group> */}
       {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
       </Form.Group> */}
-      <Button variant="primary" type="submit" onClick={logMeIn}>
+      {/* <Button variant="primary" type="submit" onClick={logMeIn}>
         Submit
       </Button>
-    </Form>
+    </Form> */}
     
-    {/* <h1>Login</h1>
-    <form className="login">
-      <input onChange={handleChange}
-        type="email"
-        text={loginForm.email}
-        name="email"
-        placeholder="Email"
-        value={loginForm.email} />
-      <input onChange={handleChange}
-        type="password"
-        text={loginForm.password}
-        name="password"
-        placeholder="Password"
-        value={loginForm.password} />
-
-      <button onClick={logMeIn}>Submit</button>
-    </form> */}
+    
   </div>
   )
 }

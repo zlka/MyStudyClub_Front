@@ -4,6 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 10px;
 
 }
 
@@ -21,7 +22,7 @@
 .registration button {
     border: none;
     margin-left: 10px;
-    background-color: white;;
+    background-color: white;
 }
 
 .modal {
@@ -45,10 +46,18 @@
     border: 1px solid #888;
     width: 80%;
     border-radius: 15px;
-
+    /* border: 2px solid red; */
   }
 
   .exit-btn:hover{
     color:red;
     cursor: pointer;
+    text-align: end;
   }
+  .exit-btn{
+    color:grey;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:20px;
+  }
+

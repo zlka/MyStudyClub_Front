@@ -3,10 +3,12 @@ import './card.css'
 
 const GameCard = ({card,id,onCardClick}) => {
     let cardClass = card.match ? " " + card.match : ""
-    console.log(cardClass)
     return (
-        <div className={"gameCard" + cardClass } onClick={() => onCardClick(id) }>
-                <p > {card.data}</p>
+        <div 
+        className={"gameCard" + cardClass } 
+        role="switch" aria-checked="true" 
+        onClick={() => onCardClick(id) }>
+            <p aria-label="game-card"> {card.data}</p>
         </div>
     )
 };

@@ -11,7 +11,7 @@ function App() {
 	return (
 		<div className="App">
 			<main>
-				<Header />
+			<Header />
 				<Routes>
 					<Route index path="/" element={<Home />}></Route>
 					{/* ensures user must have a token */}

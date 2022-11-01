@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { CardView, Dashboard, Home, Login, Game } from './pages';
+import { CardView, Dashboard, Home, Login, Game, Set } from './pages';
 import { useToken, Profile, SignIn } from './components'
 import { Header, Footer } from './Layout'
 
@@ -24,6 +24,7 @@ function App() {
 								<Route path="/dashboard" element={<Dashboard />}></Route>
 								<Route path="practise" element={<CardView />}></Route>
 								<Route path="test" element={<Game />}></Route>
+								<Route path="edit" element={<Set />}></Route>
 							</Routes>
 							</>
 						)}>

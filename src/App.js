@@ -2,7 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { CardView, Dashboard, Dashboard2, Home, Login, Game, Set } from './pages';
 import { useToken, Profile, SignIn } from './components'
-import { Header, Footer } from './Layout'
+import { Footer } from './Layout'
 
 function App() {
 
@@ -11,7 +11,6 @@ function App() {
 	return (
 		<div className="App">
 			<main>
-			<Header token={removeToken} />
 				<Routes>
 					<Route index path="/" element={<Home />}></Route>
 					{/* ensures user must have a token */}
@@ -31,7 +30,7 @@ function App() {
 						)}>
 					</Route>
 				</Routes>
-			<Footer />
+			{/* <Footer /> */}
 			</main>
 		</div>
 	);

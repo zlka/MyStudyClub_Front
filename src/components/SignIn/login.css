@@ -9,10 +9,11 @@
 #formInput{
     border: none;
     border-bottom: 1px solid grey;
-    outline:none
+    outline:none;
+    /* background-color:#80baab; */
 }
 #formInput:hover{
-    border-bottom: 1px solid #56cfe1;
+    border-bottom: 1px solid #80baab;
 }
 
 #formInput:focus{

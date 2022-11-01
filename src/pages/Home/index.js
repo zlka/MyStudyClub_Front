@@ -6,7 +6,7 @@ import logo from '../../static/logo.png'
 const Home = () => {
   return (
     <div className="homepage">
-      <Header />
+      {/* <Header /> */}
       <div className="home">
       {/* <h1>home page</h1> */}
       <section className="home-create">

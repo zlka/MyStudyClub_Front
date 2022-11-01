@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, redirect } from 'react-router-dom'
 import { CardView, Dashboard, Dashboard2, Home, Login, Game, Set } from './pages';
 import { useToken, Profile, SignIn } from './components'
 import { Footer, Header } from './Layout'
@@ -15,19 +15,25 @@ function App() {
 				<Routes>
 					<Route index path="/" element={<Home />}></Route>
 					{/* ensures user must have a token */}
-					<Route path='/login/*' element={!token && token !== "" && token !== undefined ?
-						<Login />
+					<Route path='/dashboard' element={!!token ?
+						<Dashboard />
 						: (
-							<>
-							<Routes>
-								<Route path='/profile' element={<Profile token={token} setToken={setToken} />}></Route>
-								<Route path="/dashboard" element={<Dashboard />}></Route>
-								<Route path="/dashboard2" element={<Dashboard2 />}></Route>
-								<Route path="practise" element={<CardView />}></Route>
-								<Route path="test" element={<Game />}></Route>
-								<Route path="edit" element={<Set />}></Route>
-							</Routes>
-							</>
+
+              <redirect
+              to={{
+                pathname: "/home",
+              }}
+            />
+							// <>
+							// <Routes>
+							// 	<Route path='/profile' element={<Profile token={token} setToken={setToken} />}></Route>
+							// 	<Route path="/dashboard" element={<Dashboard />}></Route>
+							// 	<Route path="/dashboard2" element={<Dashboard2 />}></Route>
+							// 	<Route path="practise" element={<CardView />}></Route>
+							// 	<Route path="test" element={<Game />}></Route>
+							// 	<Route path="edit" element={<Set />}></Route>
+							// </Routes>
+							// </>
 						)}>
 					</Route>
 				</Routes>

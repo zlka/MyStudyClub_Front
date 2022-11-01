@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import './login.css'
 
 
@@ -52,6 +50,7 @@ const SignIn = (props) => {
 
 
 <form className="login">
+
     <label>Email address</label>
       <input onChange={handleChange}
         type="email"
@@ -59,6 +58,7 @@ const SignIn = (props) => {
         name="email"
         id="formInput"
         value={loginForm.email} />
+
      <label>Password</label>
      <input onChange={handleChange}
         type="password"

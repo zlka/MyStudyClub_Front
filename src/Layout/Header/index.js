@@ -55,7 +55,6 @@ function Header(props) {
 
         <div className="modal" style={{display: dis}} hidden={hidden}>
           <div className="register-modal">
-            
             <XLg onClick={closeModal} className="exit-btn"/>
             <SignIn />
           </div>

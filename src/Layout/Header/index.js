@@ -1,7 +1,13 @@
+import React,{ useState } from 'react'
 import axios from "axios"
-
+import logo from '../../static/logo.png'
+import './header.css'
+import { XLg } from 'react-bootstrap-icons';
+import { SignIn, SignUp } from '../../components/'
 
 function Header(props) {
+  const [dis , setDisplay] = useState("")
+  const [hidden , setHidden] = useState(true)
 
   function logMeOut() {
     axios({
@@ -20,12 +26,42 @@ function Header(props) {
     })
   }
 
+  const openModal= () => {
+    setDisplay("block")
+    setHidden(!hidden)
+  };
+
+
+  const closeModal = () => {
+    setDisplay("none")
+  };
+
+
   return(
-    <header className="App-Header">
-      <p>Header</p>
-      <button onClick={logMeOut}>
-        Logout
-      </button>
+    <header className="navHeader">
+      <img src={logo} alt="my study club" />
+
+      <div className="registration">
+        <button id="login" onClick={openModal} > Login </button> | 
+        <button id="register" onClick={openModal}> Sign Up </button>
+        {/* <button  onClick={logMeOut}>Logout </button> */}
+
+        <div className="modal" style={{display: dis}} hidden={hidden}>
+          <div className="login-modal">
+            <SignIn />
+            <XLg onClick={closeModal} className="exit-btn"/>
+          </div>
+        </div>
+
+        <div className="modal" style={{display: dis}} hidden={!hidden}>
+          <div className="register-modal">
+            <SignUp />
+            <XLg onClick={closeModal} className="exit-btn"/>
+          </div>
+        </div>
+
+      </div>
+      
     </header>
   )
 }

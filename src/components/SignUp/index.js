@@ -51,7 +51,7 @@ const SignUp = () => {
       type="full_name"
       text={newUser.full_name}
       name="full_name"
-      id="formInput"
+      id="fullName"
       value={newUser.full_name} />
 
     <label>Username</label>
@@ -59,15 +59,15 @@ const SignUp = () => {
     type="user_name"
     text={newUser.user_name}
      name="user_name"
-    id="formInput"
+    id="username"
     value={newUser.user_name}/>
 
     <label>Email Address</label>
     <input onChange={handleChange}
       type="email"
       text={newUser.email}
-      name="email"
-      id="formInput"
+      name="emailUp"
+      id="emailUp"
       value={newUser.email}/>
     <p className="text-muted" >We'll never share your email with anyone else </p>
 
@@ -75,12 +75,12 @@ const SignUp = () => {
     <input onChange={handleChange}
       type="password"
       text={newUser.password}
-      name="password"
-      id="formInput"
+      name="passwordUp"
+      id="passwordUp"
       value={newUser.password}/>
 
         {/* <Form.Check type="checkbox" label="Keep me update" /> */}
-      <button type="submit" id="submit" onClick={signMeUp}>
+      <button type="submit" id="submitUp" onClick={signMeUp}>
       Sign Up
     </button>
 

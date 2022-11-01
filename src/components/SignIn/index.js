@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { redirect, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import './login.css'
 
@@ -9,6 +10,8 @@ const SignIn = (props) => {
     email: "",
     password: ""
   })
+
+  const navigate = useNavigate();
 
   function logMeIn(event) {
     axios({
@@ -37,6 +40,15 @@ const SignIn = (props) => {
     event.preventDefault()
   }
 
+  function redirect () {
+    navigate('/dashboard')
+  }
+
+  function actions () {
+    SignIn();
+    redirect()
+  }
+
   function handleChange(event) {
     const { value, name } = event.target
     setLoginForm(prevNote => ({
@@ -56,7 +68,6 @@ const SignIn = (props) => {
         type="email"
         text={loginForm.email}
         name="email"
-        id="formInput"
         value={loginForm.email} />
 
      <label>Password</label>
@@ -64,10 +75,9 @@ const SignIn = (props) => {
         type="password"
         text={loginForm.password}
         name="password"
-        id="formInput"
         value={loginForm.password} />
 
-      <button id="submit" onClick={logMeIn}>Log In</button>
+      <button id="submit" onClick={actions}>Log In</button>
     </form>
     {/* <Form className='login'>
       <Form.Group className="mb-3" controlId="formBasicEmail">

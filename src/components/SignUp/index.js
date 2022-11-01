@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
+import './signup.css'
 
 const SignUp = () => {
 
@@ -44,56 +44,46 @@ const SignUp = () => {
   return (
 
   <div>
+
     <Form className='register'>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Full Name</Form.Label>
-        <Form.Control onChange={handleChange}
-        type="full_name"
-        text={newUser.full_name}
-        name="full_name"
-        placeholder="Full Name"
-        value={newUser.full_name} />
-      </Form.Group>
+    <label>Full Name</label>
+    <input onChange={handleChange}
+      type="full_name"
+      text={newUser.full_name}
+      name="full_name"
+      id="formInput"
+      value={newUser.full_name} />
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Username</Form.Label>
-        <Form.Control onChange={handleChange}
-        type="user_name"
-        text={newUser.user_name}
-        name="user_name"
-        placeholder="Username"
-        value={newUser.user_name}/>
-      </Form.Group>
+    <label>Username</label>
+    <input onChange={handleChange}
+    type="user_name"
+    text={newUser.user_name}
+     name="user_name"
+    id="formInput"
+    value={newUser.user_name}/>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Email Address</Form.Label>
-        <Form.Control onChange={handleChange}
-        type="email"
-        text={newUser.email}
-        name="email"
-        placeholder="Email"
-        value={newUser.email}/>
-        <Form.Text className="text-muted" >
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
+    <label>Email Address</label>
+    <input onChange={handleChange}
+      type="email"
+      text={newUser.email}
+      name="email"
+      id="formInput"
+      value={newUser.email}/>
+    <p className="text-muted" >We'll never share your email with anyone else </p>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control onChange={handleChange}
-        type="password"
-        text={newUser.password}
-        name="password"
-        placeholder="Password"
-        value={newUser.password}/>
-      </Form.Group>
+    <label>Password</label>
+    <input onChange={handleChange}
+      type="password"
+      text={newUser.password}
+      name="password"
+      id="formInput"
+      value={newUser.password}/>
 
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Keep me update" />
-      </Form.Group>
-      <Button variant="primary" type="submit" onClick={signMeUp}>
-        Submit
-      </Button>
+        {/* <Form.Check type="checkbox" label="Keep me update" /> */}
+      <button type="submit" id="submit" onClick={signMeUp}>
+      Sign Up
+    </button>
+
     </Form>
   </div>
   )

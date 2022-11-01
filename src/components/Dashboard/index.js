@@ -4,23 +4,22 @@ import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from 'react';
 import { render } from 'react-dom';
 
+
 const Resolver = (props) => {
-    // console.log(props.then)
-    props.data.then((result) => {
-    console.log(result)
+      console.log(props.data)
     return(
-      result.map((cell, index) => {
+      props.data.map((cell, index) => {
 
         return(
  
         <tr key={index}>
-        <td>{cell[index]}</td>
-        <td>{cell[index + 1]}</td>
+        <td>{cell.club_name}</td>
+        <td>{cell.club_code}</td>
         <td style={{
           width: '4rem'
           
         }}><Button>Go</Button>{' '}</td>
-        {console.log(cell)}
+        {/* {console.log(cell)} */}
         
         </tr>       
 
@@ -28,7 +27,7 @@ const Resolver = (props) => {
       )})
     
   )
-})
+
   
 
 }

@@ -8,21 +8,17 @@ import { Resolver } from '../../components';
 
 function Dashboard() {
 
+  const [data, setData]=useState([])
+  useEffect(()=> {
+    async function getData() {
   
-  const [data, setData] = useState();
-  async function getData() {
-  
-    let grab = await axios("https://my-study-club.herokuapp.com/studentclubs/1")
-      .then((result) => {
-      return (result.data) 
-    })
-      .then((result => {
-        return(result)
-      })) 
-    return grab }
-  let response = (getData().then((result => {
-    return(result)
-  })))
+      let response = await axios.get("https://my-study-club.herokuapp.com/clubs")
+      setData(response.data)
+    }
+    getData()
+  },[]);
+
+
   return (
     <>
     <div className="main-container">
@@ -76,7 +72,7 @@ function Dashboard() {
         backgroundColor: 'lightpink',
         fontSize: '20px'
       }}>
-       <Resolver data={response}/>
+       <Resolver data={data}/>
       </tbody>
     </Table>
     </div>

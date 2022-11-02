@@ -58,44 +58,48 @@ const SignUp = () => {
 
     <div>
 
-      <Form className='register' hidden={!hidden}>
-        <label>Full Name</label>
-        <input onChange={handleChange}
-          type="full_name"
-          text={newUser.full_name}
-          name="full_name"
-          id="fullName"
-          value={newUser.full_name} />
+    <Form className='register' hidden={!hidden}>
+    <label>Full Name</label>
+    <input onChange={handleChange}
+      className="formInput"
+      type="full_name"
+      text={newUser.full_name}
+      name="full_name"
+      id="fullName"
+      value={newUser.full_name} />
 
-        <label>Username</label>
-        <input onChange={handleChange}
-          type="user_name"
-          text={newUser.user_name}
-          name="user_name"
-          id="username"
-          value={newUser.user_name} />
+    <label>Username</label>
+    <input onChange={handleChange}
+    className="formInput"
+    type="user_name"
+    text={newUser.user_name}
+     name="user_name"
+    id="username"
+    value={newUser.user_name}/>
 
-        <label>Email Address</label>
-        <input onChange={handleChange}
-          type="email"
-          text={newUser.email}
-          name="email"
-          id="emailup"
-          value={newUser.email} />
-        <p className="text-muted" >We'll never share your email with anyone else </p>
+    <label>Email Address</label>
+    <input onChange={handleChange}
+    className="formInput"
+      type="email"
+      text={newUser.email}
+      name="email"
+      id="emailup"
+      value={newUser.email}/>
+    <p className="text-muted" >We'll never share your email with anyone else </p>
 
-        <label>Password</label>
-        <input onChange={handleChange}
-          type="password"
-          text={newUser.password}
-          name="password"
-          id="passwordUp"
-          value={newUser.password} />
+    <label>Password</label>
+    <input onChange={handleChange}
+    className="formInput"
+      type="password"
+      text={newUser.password}
+      name="password"
+      id="passwordUp"
+      value={newUser.password}/>
 
         {/* <Form.Check type="checkbox" label="Keep me update" /> */}
-        <button type="submit" id="submitUp" onClick={signMeUp}>
-          Sign Up
-        </button>
+      <button type="submit" id="submitSignup" onClick={signMeUp}>
+      Sign Up
+    </button>
 
       </Form>
       <div id='singUpConfirmation'>

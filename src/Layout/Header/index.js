@@ -9,7 +9,8 @@ import { XLg, Search } from 'react-bootstrap-icons';
 
 function Header(props) {
   const token = localStorage.getItem('token')
-  const [dis, setDisplay] = useState("")
+  const [displayLogin, setLogin] = useState("")
+  const [displayLogout, setLogout] = useState("")
   const [appear, setAppear] = useState(true)
   const [data, setData] = useState('')
   const [searchResults, setResults] = useState([])
@@ -17,6 +18,7 @@ function Header(props) {
   const [hidden, setHidden] = useState(false)
 
   const navigate = useNavigate()
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,7 +26,7 @@ function Header(props) {
         let newData = Array.from(new Set(data.map(d => d["set.set_name"]))).map(name => {
           return data.find(d => d["set.set_name"]=== name)
         })
-        console.log("new",newData)
+        // console.log("new",newData)
         setData(newData)
       } catch (err) {
         console.log("doesn't work")
@@ -49,33 +51,30 @@ function Header(props) {
     }
   };
 
-  const openModal = () => {
-    setDisplay("block")
-    setAppear(!appear)
-  };
+  
 
-
-  const closeModal = () => {
-    setDisplay("none")
-    setAppear(!!appear)
-  };
-
-  function hasJWT() {
-    let flag = false;
-    //check user has JWT token
-    localStorage.getItem('token') ? flag = true : flag = false
-    setHidden(flag)
-    return flag
+  const openLoginModal = () => {
+    setLogin("block")
   }
+  const openLogoutModal = () => {
+    setLogout("block")
+  }
+
+  const closeLoginModal = () => {
+    setLogin("none")
+  };
+  const closeLogoutModal = () => {
+    setLogout("none")
+  };
 
   return (
     <header className="navHeader">
       <a href="/"><img src={logo} alt="my study club" /></a>
       
 
-
-      <div className='find'>
-        <div className="searchBar" hidden={!hidden}>
+      {localStorage.getItem('token') ?
+        <div className='find'>
+        <div className="searchBar" >
           <input className="search" type="text" value={wordEntered} onChange={handleFilter} />
           <button className="searchBtn" style={{ color: 'grey' }}><Search /></button>
         </div>
@@ -88,10 +87,28 @@ function Header(props) {
             })}
           </div>
         )}
-        <div>
-          <button id='logout' hidden={!hidden}>Log out</button>
-        </div>
       </div>
+        : 
+        (
+          <>
+          </>                        
+        )
+        }
+      {/* <div className='find' hidden={!hidden}>
+        <div className="searchBar" >
+          <input className="search" type="text" value={wordEntered} onChange={handleFilter} />
+          <button className="searchBtn" style={{ color: 'grey' }}><Search /></button>
+        </div>
+        {searchResults.length > 0 && (
+          <div className="dataResult">
+            {searchResults.map((result, idx) => {
+              return (
+                <button key={idx} className="dataItem" onClick={() => navigate("/dashboard/set", { state: result.set_id })}>{result["set.set_name"]}</button>
+              )
+            })}
+          </div>
+        )}
+      </div> */}
 
 
 
@@ -99,26 +116,26 @@ function Header(props) {
 
       <div className="registration" hidden={hidden}>
         {!localStorage.getItem('token') ?
-        <div><button id="login" onClick={openModal} > Login </button>
-        <button id="register" onClick={openModal}>| Sign Up </button></div>
+        <div><button id="login" onClick={openLoginModal} > Login  </button>  |
+        <button id="register" onClick={openLogoutModal}> Sign Up </button></div>
         : 
-        <button id="logout" onClick={() => {window.location.href = '/' 
+        (<button id="logout" onClick={() => {window.location.href = '/' 
                                             localStorage.clear()}
                                             }> Logout </button>
+                                            
+        )
         }
         
-        {/* <button  onClick={logMeOut}>Logout </button> */}
-
-        <div className="modal" style={{ display: dis }} hidden={!appear}>
+        <div className="modal" style={{ display: displayLogin }} >
           <div className="login-modal">
-            <XLg onClick={closeModal} className="exit-btn" />
+            <XLg onClick={closeLoginModal} className="exit-btn" />
             <SignIn hidden={true} />
           </div>
         </div>
 
-        <div className="modal" style={{ display: dis }} hidden={appear}>
+        <div className="modal" style={{ display: displayLogout }} >
           <div className="register-modal">
-            <XLg onClick={closeModal} className="exit-btn" />
+            <XLg onClick={closeLogoutModal} className="exit-btn" />
             <SignUp />
           </div>
         </div>
@@ -130,6 +147,7 @@ function Header(props) {
 }
 
 export default Header
+
 // function logMeOut() {
   //   axios({
   //     method: "POST",

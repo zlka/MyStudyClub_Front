@@ -1,0 +1,12 @@
+#edit,#deleteCard{
+    background-color: white;
+    color:grey
+}
+
+#edit:hover {
+    color:orange
+}
+
+#deleteCard:hover{
+color:red;
+}

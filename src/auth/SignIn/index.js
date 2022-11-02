@@ -62,6 +62,7 @@ const SignIn = (props) => {
 
         <label>Email address</label>
         <input onChange={handleChange}
+        className="formInput"
           type="email"
           text={loginForm.email}
           name="email"
@@ -70,14 +71,15 @@ const SignIn = (props) => {
 
         <label>Password</label>
         <input onChange={handleChange}
+        className="formInput"
           type="password"
           text={loginForm.password}
           name="password"
           value={loginForm.password} 
           required/>
 
-        <button id="submit" onClick={logMeIn}>Log In</button>
-        <p hidden={hidden}> Please check you email or password</p>
+        <button id="submitLog" onClick={logMeIn}>Log In</button>
+        <p hidden={hidden} style={{color:"orange"}}> Please check your email or password</p>
         
       </form>
       {/* <Form className='login'>

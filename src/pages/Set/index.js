@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
 import axios from "axios";
-import { FlashcardList } from '../../components';
+import { BackButton, FlashcardList } from '../../components';
 import './set.css'
 
 
@@ -31,6 +31,7 @@ function Set() {
 
   return (
     <>
+    <BackButton />
       <div className="s-container">
         {flashcards ? <FlashcardList flashcards={flashcards} /> : <h3> Loading... </h3>}
       </div>

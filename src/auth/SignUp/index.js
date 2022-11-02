@@ -12,7 +12,7 @@ const SignUp = () => {
     email: "",
     password: ""
   })
- 
+
   const [hidden, setHidden] = useState(true)
 
   function signMeUp(event) {
@@ -26,10 +26,17 @@ const SignUp = () => {
         password: newUser.password
       }
     }).then((response) => {
-      if (response.status === 201){
+      if (response.status === 201) {
         setHidden(false)
       }
+    }).catch((error) => {
+      if (error.response) {
+        console.warn(error.response)
+        console.warn(error.response.status)
+        console.warn(error.response.headers)
+      }
     })
+
 
     setNewUser({
       full_name: "",
@@ -49,54 +56,57 @@ const SignUp = () => {
   }
   return (
 
-  <div>
+    <div>
 
-    <Form className='register' hidden={!hidden}>
-    <label>Full Name</label>
-    <input onChange={handleChange}
-      type="full_name"
-      text={newUser.full_name}
-      name="full_name"
-      id="fullName"
-      value={newUser.full_name} />
+      <Form className='register' hidden={!hidden}>
+        <label>Full Name</label>
+        <input onChange={handleChange}
+          type="full_name"
+          text={newUser.full_name}
+          name="full_name"
+          id="fullName"
+          value={newUser.full_name} />
 
-    <label>Username</label>
-    <input onChange={handleChange}
-    type="user_name"
-    text={newUser.user_name}
-     name="user_name"
-    id="username"
-    value={newUser.user_name}/>
+        <label>Username</label>
+        <input onChange={handleChange}
+          type="user_name"
+          text={newUser.user_name}
+          name="user_name"
+          id="username"
+          value={newUser.user_name} />
 
-    <label>Email Address</label>
-    <input onChange={handleChange}
-      type="email"
-      text={newUser.email}
-      name="email"
-      id="emailup"
-      value={newUser.email}/>
-    <p className="text-muted" >We'll never share your email with anyone else </p>
+        <label>Email Address</label>
+        <input onChange={handleChange}
+          type="email"
+          text={newUser.email}
+          name="email"
+          id="emailup"
+          value={newUser.email} />
+        <p className="text-muted" >We'll never share your email with anyone else </p>
 
-    <label>Password</label>
-    <input onChange={handleChange}
-      type="password"
-      text={newUser.password}
-      name="password"
-      id="passwordUp"
-      value={newUser.password}/>
+        <label>Password</label>
+        <input onChange={handleChange}
+          type="password"
+          text={newUser.password}
+          name="password"
+          id="passwordUp"
+          value={newUser.password} />
 
         {/* <Form.Check type="checkbox" label="Keep me update" /> */}
-      <button type="submit" id="submitUp" onClick={signMeUp}>
-      Sign Up
-    </button>
+        <button type="submit" id="submitUp" onClick={signMeUp}>
+          Sign Up
+        </button>
 
-    </Form>
+      </Form>
+      <div id='singUpConfirmation'>
+        <h4 hidden={hidden}>Successfully registered!</h4>
+      </div>
 
-    <h4 id='singUpConfirmation' hidden={hidden}>Successfully registered!</h4>
-
-  </div>
+    </div>
   )
 }
+
+
 
 export default SignUp
 

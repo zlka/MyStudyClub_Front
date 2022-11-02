@@ -4,6 +4,7 @@
     flex-direction: column;
     gap: 15px;
     font-size: 15px;
+    font-family:'poppins';
 }
 
 #formInput{
@@ -27,6 +28,7 @@
 
 }
 #submit{
+    color:grey;
     width: fit-content;
     align-self: center
 }

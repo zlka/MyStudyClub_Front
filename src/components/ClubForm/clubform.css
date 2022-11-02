@@ -1,0 +1,22 @@
+.clubForm{
+    border: 2px solid red;
+    border:none;
+    border-bottom: 1px solid grey;
+    margin:5px 0px;
+}
+
+.clubForm:focus{
+    outline:none
+}
+
+.clubForm:hover{
+    border-bottom: 1px solid teal;
+ 
+}
+
+.create button {
+    /* border: 2px solid red; */
+    background-color: white;
+    color:teal;
+    width: 100%
+}

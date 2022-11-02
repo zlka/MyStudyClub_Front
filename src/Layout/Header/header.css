@@ -95,9 +95,9 @@ color: teal;
   }
 
   .dataResult {
-    margin-top: 40px;
+    margin-top: 250px;
     width: 200px;
-    height: 200px;
+    /* height: 200px; */
     position: absolute;
     /* border: 2px solid red;; */
     background-color: white;
@@ -107,13 +107,14 @@ color: teal;
     overflow-y: auto;
   }
   
-.dataResult .dataItem {
+ .dataItem {
   width: 100%;
+  background-color: white;
   height: 50px;
   display: flex;
   padding: 10px;
   color: black;
-  border: 2px solid white;
+  border:none;
 }
 .dataItem:hover {
  background-color: whitesmoke;
@@ -129,6 +130,7 @@ color: teal;
   display: flex;
   align-items: center;
   gap: 10px;
+  /* border: 2px solid blue; */
 }
 
 #logout{
@@ -140,3 +142,4 @@ color: teal;
 #logout:hover{
   color: black;
 }
+

@@ -68,7 +68,8 @@ function Header(props) {
 
   return (
     <header className="navHeader">
-      <img src={logo} alt="my study club" />
+      <a href="/"><img src={logo} alt="my study club" /></a>
+      
 
 
       <div className='find'>
@@ -80,7 +81,7 @@ function Header(props) {
           <div className="dataResult">
             {searchResults.map((result, idx) => {
               return (
-                <button key={idx} className="dataItem" onClick={() => navigate("dashboard/set", { state: result.set_id })}>{result["set.set_name"]}</button>
+                <button key={idx} className="dataItem" onClick={() => navigate("/dashboard/set", { state: result.set_id })}>{result["set.set_name"]}</button>
               )
             })}
           </div>

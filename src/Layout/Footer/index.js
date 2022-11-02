@@ -10,7 +10,7 @@ const Footer = () => {
     background:'whitesmoke',
   }
   return (
-    <div style={style} >
+    <div id='footer'>
       Any questions? 
       <a href="#" style={{textDecoration:'none', color: 'grey'}}> contact us</a>
        </div>

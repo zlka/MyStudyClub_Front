@@ -8,10 +8,8 @@ import { XLg, Search } from 'react-bootstrap-icons';
 
 
 function Header(props) {
-  const token = localStorage.getItem('token')
   const [displayLogin, setLogin] = useState("")
   const [displayLogout, setLogout] = useState("")
-  const [appear, setAppear] = useState(true)
   const [data, setData] = useState('')
   const [searchResults, setResults] = useState([])
   const [wordEntered, setWordEntered] = useState("");

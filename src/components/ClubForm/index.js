@@ -25,7 +25,7 @@ const ClubForm = () => {
           data : data
         };
         
-        const response = await axios(config)
+        // const response = await axios(config)
         .then(response => {
           console.log(JSON.stringify(response.data));
         })

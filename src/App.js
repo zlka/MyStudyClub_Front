@@ -1,42 +1,73 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import { CardView, Dashboard, Dashboard2, Home, Login, Game, Set, Edit, NewCard } from './pages';
-import { useToken, Profile, SignIn } from './components'
-import { Footer, Header } from './Layout'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { CardView, NotFound, Dashboard2, Home, Game, Set, Edit, NewCard } from './pages';
+import { setAuthToken } from './helpers/setAuthToken';
+import { useToken } from './auth';
+import { Footer, Header } from './layout'
+import './App.css'
+
 
 function App() {
 
-	const { token, removeToken, setToken } = useToken()
+  function hasJWT() {
+    let flag = false;
+    //check user has JWT token
+    localStorage.getItem('token') ? flag = true : flag = false
+    return flag
+  }
 
-	return (
-		<div className="App">
-			<main>
-			<Header />
-				<Routes>
-					<Route index path="/" element={<Home />}></Route>
-					{/* ensures user must have a token */}
-					<Route path='/login/*' element={!token && token !== "" && token !== undefined ?
-						<Login />
-						: (
-							<>
-							<Routes>
-								<Route path='/profile' element={<Profile token={token} setToken={setToken} />}></Route>
-								<Route path="/dashboard" element={<Dashboard />}></Route>
-								<Route path="/dashboard2" element={<Dashboard2 />}></Route>
-								<Route path="practise" element={<CardView />}></Route>
-								<Route path="test" element={<Game />}></Route>
-								<Route path="set" element={<Set />}></Route>
-								<Route path="edit" element={<Edit />}></Route>
-								<Route path="new" element={<NewCard />}></Route>
-							</Routes>
-							</>
-						)}>
-					</Route>
-				</Routes>
-			<Footer />
-			</main>
-		</div>
-	);
+  return (
+    <div className="App">
+      <main>
+        <Header />
+        <Routes>
+          <Route index path='/' element={<Home />} />
+          <Route path='/dashboard'
+            element={
+              hasJWT() ?
+                <Dashboard2 />
+                : (
+                  <Navigate to={{ pathname: '/' }}/>
+                )}
+          />
+          <Route path='dashboard/practise'
+            element={
+              hasJWT() ?
+                <CardView />
+                : (
+                  <Navigate to={{ pathname: '/' }}/>
+                )}
+          />
+          <Route path='/dashboard/test'
+            element={
+              hasJWT() ?
+                <Game />
+                : (
+                  <Navigate to={{ pathname: '/' }}/>
+                )}
+          />
+          <Route path='/dashboard/set'
+            element={
+              hasJWT() ?
+                <Set />
+                : (
+                  <Navigate to={{ pathname: '/' }}/>
+                )}
+          />
+          <Route path='/dashboard/edit'
+            element={
+              hasJWT() ?
+                <Edit />
+                : (
+                  <Navigate to={{ pathname: '/' }}/>
+                )}
+          />
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+        <Footer />
+      </main>
+    </div>
+  );
 }
 
 export default App;

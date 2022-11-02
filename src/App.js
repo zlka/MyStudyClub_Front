@@ -72,6 +72,7 @@ function App() {
                   <Navigate to={{ pathname: '/home' }}/>
                 )}
           />
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
         <Footer />
       </main>

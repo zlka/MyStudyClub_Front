@@ -8,7 +8,9 @@ const ClubForm = () => {
     const [error, setError] = useState(null)
 
     const handleSubmit = async (e) => {
+
         e.preventDefault()
+
         let data = JSON.stringify({
           "title": title,
           "code": code
@@ -31,10 +33,13 @@ const ClubForm = () => {
           setError(error)
           console.log(error);
         });
+
+        setTitle('')
+        setCode('')
     }
   
     return (
-      <form className="create" onSubmit={handleSubmit}> 
+      <form className="create" onSubmit={handleSubmit} id='createGroupForm'> 
         <h3>Create a new Club</h3>
   
         <label>Club Name:</label>
@@ -45,7 +50,7 @@ const ClubForm = () => {
           required
         />
   
-        <label>Code:</label>
+        <label>Secret Code:</label>
         <input 
           type="text" 
           onChange={(e) => setCode(e.target.value)} 

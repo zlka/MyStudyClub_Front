@@ -57,6 +57,7 @@ function Header(props) {
 
   const closeModal = () => {
     setDisplay("none")
+    setAppear(!!appear)
   };
 
   function hasJWT() {
@@ -74,7 +75,7 @@ function Header(props) {
 
 
       <div className='find'>
-        <div className="searchBar" >
+        <div className="searchBar" hidden={!hidden}>
           <input className="search" type="text" value={wordEntered} onChange={handleFilter} />
           <button className="searchBtn" style={{ color: 'grey' }}><Search /></button>
         </div>
@@ -99,7 +100,7 @@ function Header(props) {
       <div className="registration" hidden={hidden}>
         {!localStorage.getItem('token') ?
         <div><button id="login" onClick={openModal} > Login </button>
-        <button id="register" onClick={openModal}> Sign Up </button></div>
+        <button id="register" onClick={openModal}>| Sign Up </button></div>
         : 
         <button id="logout" onClick={() => {window.location.href = '/' 
                                             localStorage.clear()}

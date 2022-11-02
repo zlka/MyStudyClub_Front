@@ -38,7 +38,6 @@ const SignIn = (props) => {
           console.warn(error.response.status)
           console.warn(error.response.headers)
           setHidden(false)
-          console.log('error', hidden)
         }
       })
 
@@ -66,14 +65,16 @@ const SignIn = (props) => {
           type="email"
           text={loginForm.email}
           name="email"
-          value={loginForm.email} />
+          value={loginForm.email} 
+          required/>
 
         <label>Password</label>
         <input onChange={handleChange}
           type="password"
           text={loginForm.password}
           name="password"
-          value={loginForm.password} />
+          value={loginForm.password} 
+          required/>
 
         <button id="submit" onClick={logMeIn}>Log In</button>
         <p hidden={hidden}> Please check you email or password</p>

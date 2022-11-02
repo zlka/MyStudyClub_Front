@@ -12,8 +12,8 @@ const SignUp = () => {
     email: "",
     password: ""
   })
-
-  console.log(newUser.user_name)
+ 
+  const [hidden, setHidden] = useState(true)
 
   function signMeUp(event) {
     axios({
@@ -24,6 +24,10 @@ const SignUp = () => {
         user_name: newUser.user_name,
         email: newUser.email,
         password: newUser.password
+      }
+    }).then((response) => {
+      if (response.status === 201){
+        setHidden(false)
       }
     })
 
@@ -47,7 +51,7 @@ const SignUp = () => {
 
   <div>
 
-    <Form className='register'>
+    <Form className='register' hidden={!hidden}>
     <label>Full Name</label>
     <input onChange={handleChange}
       type="full_name"
@@ -87,6 +91,9 @@ const SignUp = () => {
     </button>
 
     </Form>
+
+    <h4 id='singUpConfirmation' hidden={hidden}>Successfully registered!</h4>
+
   </div>
   )
 }

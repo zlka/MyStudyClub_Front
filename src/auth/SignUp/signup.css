@@ -20,16 +20,16 @@
     outline:none
 }
 
-#submit:hover{
+#submitUp:hover{
     background-color: whitesmoke;
     border-radius: 15px;
     width: fit-content
 
 }
-#submit{
-    width: fit-content;
-    align-self: center;
-    margin: 10px;
+#submitUp{
+  color:grey;
+  width: fit-content;
+  align-self: center
 }
 
 

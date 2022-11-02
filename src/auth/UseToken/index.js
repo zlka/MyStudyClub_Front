@@ -26,7 +26,6 @@ const useToken = () => {
     setToken: saveToken,
     token,
     removeToken,
-    getToken
   }
 }
 

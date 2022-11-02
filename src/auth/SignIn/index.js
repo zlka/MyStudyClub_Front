@@ -5,12 +5,14 @@ import axios from 'axios';
 import './login.css'
 
 
-const SignIn = () => {
+const SignIn = (props) => {
 
   const [loginForm, setLoginForm] = useState({
     email: "",
     password: ""
   })
+
+  const [hidden, setHidden] = useState(true)
 
   function logMeIn(event) {
     axios({
@@ -27,7 +29,7 @@ const SignIn = () => {
         //set JWT token to local
         localStorage.setItem('token', userToken)
         //set token to axios common header
-        setAuthToken(userToken);
+        // setAuthToken(userToken);
         //redirect user to dashboard page
         window.location.href = '/dashboard'
 
@@ -36,6 +38,8 @@ const SignIn = () => {
           console.warn(error.response)
           console.warn(error.response.status)
           console.warn(error.response.headers)
+          setHidden(false)
+          console.log('error', hidden)
         }
       })
 
@@ -73,6 +77,8 @@ const SignIn = () => {
           value={loginForm.password} />
 
         <button id="submit" onClick={logMeIn}>Log In</button>
+        <p hidden={hidden}> Please check you email or password</p>
+        
       </form>
       {/* <Form className='login'>
       <Form.Group className="mb-3" controlId="formBasicEmail">

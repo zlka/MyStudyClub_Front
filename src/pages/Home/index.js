@@ -4,6 +4,7 @@ import { Header } from '../../layout'
 import logo from '../../static/logo.png'
 
 const Home = () => {
+
   return (
     <div className="homepage">
       {/* <Header /> */}

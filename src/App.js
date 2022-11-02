@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { CardView, Dashboard, Dashboard2, Home, Login, Game, Set } from './pages';
+import { CardView, Dashboard, Dashboard2, Home, Login, Game, Set, Edit } from './pages';
 import { useToken, Profile, SignIn } from './components'
 import { Footer, Header } from './Layout'
 
@@ -25,7 +25,8 @@ function App() {
 								<Route path="/dashboard2" element={<Dashboard2 />}></Route>
 								<Route path="practise" element={<CardView />}></Route>
 								<Route path="test" element={<Game />}></Route>
-								<Route path="edit" element={<Set />}></Route>
+								<Route path="set" element={<Set />}></Route>
+								<Route path="edit" element={<Edit />}></Route>
 							</Routes>
 							</>
 						)}>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
-import { Button } from 'react-bootstrap';
-
+// import { Button } from 'react-bootstrap';
+import {Pencil, CardList, Back} from 'react-bootstrap-icons'
 const ClubCard = (props) => {
 
     return (
@@ -13,10 +13,11 @@ const ClubCard = (props) => {
           </Card.Header>
           <Card.Body>
             <Card.Title></Card.Title>
-            <Card.Text>
-              Some info here? 
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <div> 
+            <button variant="primary"><Pencil /> Edit</button>
+            <button variant="primary"><CardList /> View</button>
+            <button variant="primary"><Back /> Test</button>
+            </div>
           </Card.Body>
           <Card.Footer className="text-muted">Sets : {props.set}</Card.Footer>
         </Card>

@@ -81,7 +81,7 @@ color: teal;
     /* border: 2px solid blue; */
   }
   .searchBar:hover{
-    border: 1.6px solid rgb(208, 202, 202);
+    border-bottom: 2px solid rgb(208, 202, 202);
   }
 
   .search,.searchBtn{

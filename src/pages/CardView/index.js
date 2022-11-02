@@ -41,6 +41,7 @@ const CardView = () => {
     };
     return (
         <>
+        
             <div role="main" id="Cards">
             {/* <h3>{ statusMessage ? statusMessage : <Card progress={`${flashcards[cardId].id} / ${flashcards.length}`} />}</h3>       */}
                 <CaretLeftFill id="arrow" onClick={previousQuestion} />

@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import './game.css'
-import { GameCard, Timer } from '../../components'
+import { useNavigate } from 'react-router-dom';
+import { GameCard, Timer, BackButton } from '../../components'
+// import set from 'date-fns/set/index.js';
+// import { setDefaultOptions } from 'date-fns/esm';
 
 const Game = () => {
     const [Cards, setCards] = useState([])
     const [clickId, setClickId] = useState(-1)
     const [load, setLoad] = useState(true)
-
+    const [end, setEnd] = useState(false)
+    const [pairs, setPairs] = useState(0)
+    const navigate = useNavigate()
     useEffect(() => {
         const fetchFlashcards = async () => {
             try {
@@ -18,7 +23,7 @@ const Game = () => {
             }
         }
         fetchFlashcards()
-    }, []) 
+    }, [])
 
     const shuffleCards = (cards) => {
         let shuffledCards = []
@@ -43,6 +48,7 @@ const Game = () => {
             Cards[clickId].match = "correct"
             setCards([...Cards])
             setClickId(-1)
+            setPairs(pairs => pairs + 2)
         } else {
             Cards[current].match = "wrong"
             Cards[clickId].match = "wrong"
@@ -56,27 +62,35 @@ const Game = () => {
         }
     }
 
-
     const startTime = () => {
         setLoad(false)
     }
 
+    const endGame = () => {
+        pairs.length === Cards.length ? setEnd(true) : setEnd(false)
+    }
+
 
     return (
-        <div id="mainGame">
-            {load ? <p style={{marginTop: "10px",color:"grey"}}> Click to start </p> : <h1><Timer /></h1>}
-
-
-            <div>
-
-            </div>
-            <div className='card-grid' onClick={startTime}>
-
-                {Cards.map((card, i) => (
-                    <GameCard key={i} id={i} card={card} onCardClick={onCardClick} />
-                ))}
-            </div>
+        <>
+        <BackButton />
+        <div id="mainGame" onClick={endGame}>
+    
+        <div>
+            {
+            load ? 
+            <p style={{ marginTop: "10px", color: "grey" }}> Click to start </p> : <h1><Timer /></h1>
+            }
         </div>
+            {
+            end ? <button onClick={() => navigate("/dashboard/set")}>End Game </button> :
+                <div className='card-grid' onClick={startTime}>
+                    {Cards.map((card, i) => (
+                        <GameCard key={i} id={i} card={card} onCardClick={onCardClick} />))}
+                </div>
+             }
+        </div>
+        </>
     )
 
 };

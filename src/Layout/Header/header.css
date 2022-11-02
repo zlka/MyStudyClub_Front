@@ -4,6 +4,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 8px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    border-bottom: 2px solid #f2f2f2;
 
 }
 
@@ -16,14 +20,18 @@
     /* border: 2px solid purple; */
     height: fit-content;
     gap: 10px;
+    color: teal;
 }
 
 .registration button {
     border: none;
     margin-left: 10px;
-    background-color: white;;
+    background-color: white;
 }
 
+#login:hover, #register:hover {
+color: teal;
+}
 .modal {
     display: none;
     position: fixed; 
@@ -33,22 +41,105 @@
     width: 100%; 
     height: 100%;
     overflow: auto; 
-    background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4);
     height: fit-content;
   }
   
   .login-modal, .register-modal {
     background-color: #fefefe;
+    color: teal;
     margin: 15% auto; 
     padding: 20px;
-    border: 1px solid #888;
+    border: 2px solid #80baab;
     width: 80%;
     border-radius: 15px;
-
+    /* border: 2px solid red; */
   }
-
+  
   .exit-btn:hover{
     color:red;
     cursor: pointer;
+    text-align: end;
   }
+  .exit-btn{
+    color:grey;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:20px;
+  }
+
+  .searchBar {
+    border: none;
+    border-bottom: 1.6px solid whitesmoke;
+    display:flex;
+    border-radius:15px;
+    /* height:33px; */
+    width: fit-content;
+    /* border: 2px solid blue; */
+  }
+  .searchBar:hover{
+    border: 1.6px solid rgb(208, 202, 202);
+  }
+
+  .search,.searchBtn{
+    background-color: white;
+    border:none;
+    border-radius:15px;
+    text-align: center;
+
+  }
+
+  .search:focus{
+    outline:none
+
+  }
+
+  .dataResult {
+    margin-top: 250px;
+    width: 200px;
+    /* height: 200px; */
+    position: absolute;
+    /* border: 2px solid red;; */
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  
+ .dataItem {
+  width: 100%;
+  background-color: white;
+  height: 50px;
+  display: flex;
+  padding: 10px;
+  color: black;
+  border:none;
+}
+.dataItem:hover {
+ background-color: whitesmoke;
+}
+
+
+.dataResult::-webkit-scrollbar {
+  display: none;
+}
+
+.find{
+  /* border: 2px solid blue; */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* border: 2px solid blue; */
+}
+
+#logout{
+  /* border: 2px solid pink; */
+  border: none;
+  background-color:white;
+  color: grey;
+}
+#logout:hover{
+  color: black;
+}
+

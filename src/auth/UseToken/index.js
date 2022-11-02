@@ -10,6 +10,7 @@ const useToken = () => {
 	// used to handle the state of the token. Ensures that the app always reloads when any funciton is called.
 	const [token, setToken] = useState(getToken())
 
+
 	// handles the storage of the token obtained when users log in
 	function saveToken(userToken) {
 		localStorage.setItem('token', userToken) //allow to access token from all tabs
@@ -24,7 +25,7 @@ const useToken = () => {
   return {
     setToken: saveToken,
     token,
-    removeToken
+    removeToken,
   }
 }
 

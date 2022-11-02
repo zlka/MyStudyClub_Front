@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { redirect, useNavigate } from 'react-router-dom'
+import { setAuthToken } from '../../helpers/setAuthToken'
 import axios from 'axios';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import './login.css'
 
 
 const SignIn = (props) => {
@@ -11,22 +12,34 @@ const SignIn = (props) => {
     password: ""
   })
 
+  const [hidden, setHidden] = useState(true)
+
   function logMeIn(event) {
     axios({
       method: "POST",
-      url: "http://127.0.0.1:5000/token", //change for deployed server
+      url: "https://my-study-club.herokuapp.com/token",
       data: {
         email: loginForm.email,
         password: loginForm.password
       }
     })
       .then((response) => {
-        props.setToken(response.data.access_token)
+        //get token from response
+        const userToken = response.data.access_token
+        //set JWT token to local
+        localStorage.setItem('token', userToken)
+        //set token to axios common header
+        setAuthToken(userToken);
+        //redirect user to dashboard page
+        window.location.href = '/dashboard'
+
       }).catch((error) => {
         if (error.response) {
           console.warn(error.response)
           console.warn(error.response.status)
           console.warn(error.response.headers)
+          setHidden(false)
+          console.log('error', hidden)
         }
       })
 
@@ -46,15 +59,36 @@ const SignIn = (props) => {
   }
   return (
 
-  <div>
-    <Form className='login'>
+    <div>
+      <form className="login">
+
+        <label>Email address</label>
+        <input onChange={handleChange}
+          type="email"
+          text={loginForm.email}
+          name="email"
+          value={loginForm.email} />
+
+        <label>Password</label>
+        <input onChange={handleChange}
+          type="password"
+          text={loginForm.password}
+          name="password"
+          value={loginForm.password} />
+
+        <button id="submit" onClick={logMeIn}>Log In</button>
+        <p hidden={hidden}> Please check you email or password</p>
+        
+      </form>
+      {/* <Form className='login'>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
+        <label>Email address</label>
         <Form.Control onChange={handleChange}
         type="email"
         text={loginForm.email}
         name="email"
-        placeholder="Enter email"
+        id="formInput"
+        // placeholder="Enter email"
         value={loginForm.email}/>
         <Form.Text className="text-muted" >
           We'll never share your email with anyone else.
@@ -67,35 +101,18 @@ const SignIn = (props) => {
         type="password"
         text={loginForm.password}
         name="password"
-        placeholder="Password"
+        id="formInput"
+        // placeholder="Password"
         value={loginForm.password}/>
-      </Form.Group>
+      </Form.Group> */}
       {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
       </Form.Group> */}
-      <Button variant="primary" type="submit" onClick={logMeIn}>
+      {/* <Button variant="primary" type="submit" onClick={logMeIn}>
         Submit
       </Button>
-    </Form>
-    
-    {/* <h1>Login</h1>
-    <form className="login">
-      <input onChange={handleChange}
-        type="email"
-        text={loginForm.email}
-        name="email"
-        placeholder="Email"
-        value={loginForm.email} />
-      <input onChange={handleChange}
-        type="password"
-        text={loginForm.password}
-        name="password"
-        placeholder="Password"
-        value={loginForm.password} />
-
-      <button onClick={logMeIn}>Submit</button>
-    </form> */}
-  </div>
+    </Form> */}
+    </div>
   )
 }
 

@@ -7,29 +7,30 @@
     font-family:'poppins';
 }
 
-#formInput{
+.formInput{
     border: none;
     border-bottom: 1px solid grey;
     outline:none;
 }
-#formInput:hover{
-    border-bottom: 1px solid #56cfe1;
+.formInput:hover{
+    border-bottom: 1px solid teal;
 }
 
-#formInput:focus{
+.formInput:focus{
     outline:none
 }
 
-#submit:hover{
+#submitSignup:hover{
     background-color: whitesmoke;
     border-radius: 15px;
     width: fit-content
 
 }
-#submit{
+#submitSignup{
     width: fit-content;
     align-self: center;
     margin: 10px;
+    color:grey;
 }
 
 

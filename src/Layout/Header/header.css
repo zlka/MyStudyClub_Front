@@ -55,7 +55,10 @@ color: teal;
     border-radius: 15px;
     /* border: 2px solid red; */
   }
-  
+  .register-modal{
+    /* border: 2px solid green; */
+    margin-top: 5%;
+  }
   .exit-btn:hover{
     color:red;
     cursor: pointer;

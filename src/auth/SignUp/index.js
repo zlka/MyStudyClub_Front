@@ -48,6 +48,7 @@ const SignUp = () => {
     <Form className='register'>
     <label>Full Name</label>
     <input onChange={handleChange}
+      className="formInput"
       type="full_name"
       text={newUser.full_name}
       name="full_name"
@@ -56,6 +57,7 @@ const SignUp = () => {
 
     <label>Username</label>
     <input onChange={handleChange}
+    className="formInput"
     type="user_name"
     text={newUser.user_name}
      name="user_name"
@@ -64,6 +66,7 @@ const SignUp = () => {
 
     <label>Email Address</label>
     <input onChange={handleChange}
+    className="formInput"
       type="email"
       text={newUser.email}
       name="email"
@@ -73,6 +76,7 @@ const SignUp = () => {
 
     <label>Password</label>
     <input onChange={handleChange}
+    className="formInput"
       type="password"
       text={newUser.password}
       name="password"
@@ -80,7 +84,7 @@ const SignUp = () => {
       value={newUser.password}/>
 
         {/* <Form.Check type="checkbox" label="Keep me update" /> */}
-      <button type="submit" id="submitUp" onClick={signMeUp}>
+      <button type="submit" id="submitSignup" onClick={signMeUp}>
       Sign Up
     </button>
 

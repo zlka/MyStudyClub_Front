@@ -121,4 +121,19 @@ color: teal;
   display: none;
 }
 
+.find{
+  /* border: 2px solid blue; */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
+#logout{
+  /* border: 2px solid pink; */
+  border: none;
+  background-color:white;
+  color: grey;
+}
+#logout:hover{
+  color: black;
+}

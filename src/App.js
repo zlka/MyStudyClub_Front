@@ -1,8 +1,12 @@
 import React from 'react'
+
+
+import { Header, Footer } from './Layout'
+
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { CardView, NotFound, Dashboard2, Home, Game, Set, Edit, NewCard } from './pages';
-import { Footer, Header } from './Layout'
+import { CardView, NotFound, Dashboard2, Home, Game, Set, Edit, NewCard, ClubView } from './pages';
 import './App.css'
+
 
 
 function App() {
@@ -14,6 +18,8 @@ function App() {
     return flag
   }
 
+
+
   return (
     <div className="App">
       <main>
@@ -24,6 +30,14 @@ function App() {
             element={
               hasJWT() ?
                 <Dashboard2 />
+                : (
+                  <Navigate to={{ pathname: '/' }}/>
+                )}
+          />
+		  <Route path='/dashboard/club'
+            element={
+              hasJWT() ?
+                <ClubView />
                 : (
                   <Navigate to={{ pathname: '/' }}/>
                 )}
@@ -74,6 +88,16 @@ function App() {
       </main>
     </div>
   );
+
 }
 
 export default App;
+
+{/* <Header token={removeToken} />
+<Routes>
+	<Route index path="/" element={<Home />}></Route>
+	{/* ensures user must have a token */}
+	// <Route path='/login/*' element={!token && token !== "" && token !== undefined ?
+	// 	<Login />
+	// 	: 
+	// 	( */}

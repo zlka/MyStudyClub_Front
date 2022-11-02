@@ -37,17 +37,19 @@ const ClubForm = () => {
       <form className="create" onSubmit={handleSubmit}> 
         <h3>Create a new Club</h3>
   
-        <label>Club Name:</label>
+        <label>Club Name</label>
         <input 
+          className="clubForm"
           type="text" 
           onChange={(e) => setTitle(e.target.value)} 
           value={title}
           required
         />
   
-        <label>Code:</label>
+        <label>Passcode</label>
         <input 
           type="text" 
+          className="clubForm"
           onChange={(e) => setCode(e.target.value)} 
           value={code}
           required

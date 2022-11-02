@@ -17,7 +17,7 @@ const SignIn = (props) => {
   function logMeIn(event) {
     axios({
       method: "POST",
-      url: "https://my-study-club.herokuapp.com/token", //change for deployed server
+      url: "https://my-study-club.herokuapp.com/token",
       data: {
         email: loginForm.email,
         password: loginForm.password

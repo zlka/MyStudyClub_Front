@@ -16,7 +16,7 @@ const SignUp = () => {
   function signMeUp(event) {
     axios({
       method: "POST",
-      url: "http://127.0.0.1:5000/students", //change for deployed server
+      url: "https://my-study-club.herokuapp.com/students", //change for deployed server
       data: {
         full_name: newUser.email,
         user_name: newUser.user_name,

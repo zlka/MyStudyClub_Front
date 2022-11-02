@@ -1,9 +1,7 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { CardView, NotFound, Dashboard2, Home, Game, Set, Edit, NewCard } from './pages';
-import { setAuthToken } from './helpers/setAuthToken';
-import { useToken } from './auth';
-import { Footer, Header } from './layout'
+import { Footer, Header } from './Layout'
 import './App.css'
 
 

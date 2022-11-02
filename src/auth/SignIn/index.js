@@ -17,7 +17,7 @@ const SignIn = (props) => {
   function logMeIn(event) {
     axios({
       method: "POST",
-      url: "http://127.0.0.1:5000/token", //change for deployed server
+      url: "https://my-study-club.herokuapp.com/token", //change for deployed server
       data: {
         email: loginForm.email,
         password: loginForm.password
@@ -29,7 +29,7 @@ const SignIn = (props) => {
         //set JWT token to local
         localStorage.setItem('token', userToken)
         //set token to axios common header
-        // setAuthToken(userToken);
+        setAuthToken(userToken);
         //redirect user to dashboard page
         window.location.href = '/dashboard'
 

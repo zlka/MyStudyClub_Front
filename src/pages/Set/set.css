@@ -96,3 +96,13 @@
 .flashcard-option:first-child {
     margin-top: 0;
 }
+
+.s-btn button {
+    background: var(--primary);
+    border: 0;
+    color: #fff;
+    margin: 5px;
+    font-family: "Poppins";
+    border-radius: 4px;
+    cursor: pointer;
+}

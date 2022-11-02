@@ -20,6 +20,7 @@
     /* border: 2px solid purple; */
     height: fit-content;
     gap: 10px;
+    color: teal;
 }
 
 .registration button {
@@ -28,6 +29,9 @@
     background-color: white;
 }
 
+#login:hover, #register:hover {
+color: teal;
+}
 .modal {
     display: none;
     position: fixed; 
@@ -49,11 +53,9 @@
     border: 2px solid #80baab;
     width: 80%;
     border-radius: 15px;
-    /* background-color: #80baab; */
     /* border: 2px solid red; */
   }
   
-
   .exit-btn:hover{
     color:red;
     cursor: pointer;
@@ -65,4 +67,61 @@
     width: 100%;
     margin-bottom:20px;
   }
+
+  .searchBar {
+    border: none;
+    border-bottom: 1.6px solid whitesmoke;
+    display:flex;
+    border-radius:15px;
+    /* height:33px; */
+    width: fit-content;
+    /* border: 2px solid blue; */
+  }
+  .searchBar:hover{
+    border: 1.6px solid rgb(208, 202, 202);
+  }
+
+  .search,.searchBtn{
+    background-color: white;
+    border:none;
+    border-radius:15px;
+    text-align: center;
+
+  }
+
+  .search:focus{
+    outline:none
+
+  }
+
+  .dataResult {
+    margin-top: 5px;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    /* border: 2px solid red;; */
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  
+.dataResult .dataItem {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  padding: 10px;
+  color: black;
+  border: 2px solid white;
+}
+.dataItem:hover {
+ background-color: whitesmoke;
+}
+
+
+.dataResult::-webkit-scrollbar {
+  display: none;
+}
+
 

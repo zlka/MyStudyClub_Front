@@ -1,0 +1,10 @@
+#newCard:hover:after {
+    content: ' add new flashcard';
+    font-size: 15px;
+}
+
+#newCard{
+    font-size :30px;
+    color: teal;
+    background-color: white;
+}

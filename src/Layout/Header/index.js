@@ -23,7 +23,7 @@ function Header(props) {
         let newData = Array.from(new Set(data.map(d => d["set.set_name"]))).map(name => {
           return data.find(d => d["set.set_name"]=== name)
         })
-        console.log("new",newData)
+        // console.log("new",newData)
         setData(newData)
       } catch (err) {
         console.log("doesn't work")

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { Pencil,XLg } from 'react-bootstrap-icons';
+import './flashcardSet.css'
 
 export default function Flashcard( {flashcard}) {
   const navigate = useNavigate();
@@ -52,7 +54,11 @@ export default function Flashcard( {flashcard}) {
       </div>
       <div className="s-back" ref={backEl}>{flashcard.answer}</div>
     </div>
-    <div className="s-btn"><button onClick={() => navigate("/login/edit", {state: flashcard})}>Edit</button><button onClick={() => handleDelete(flashcard.id)}>Delete</button></div>
+
+    <div className="s-btn" >
+      <button  id="edit"onClick={() => navigate("/dashboard/edit", {state: flashcard})}><Pencil/></button>
+      <button  id="deleteCard"onClick={() => handleDelete(flashcard.id)}><XLg /></button>
+      </div>
     </div>
   )
 }

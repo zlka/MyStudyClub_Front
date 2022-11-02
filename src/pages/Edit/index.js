@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import {useLocation, useNavigate} from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './edit.css'
 import axios from 'axios';
+import { BackButton } from '../../components';
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition
@@ -73,23 +74,23 @@ function Edit() {
         "answer": answer,
         "set_id": 4,
       });
-  
+
       let config = {
         method: 'post',
         url: 'https://my-study-club.herokuapp.com/flashcards',
-        headers: { 
+        headers: {
           'Content-Type': 'application/json'
         },
-        data : data
+        data: data
       };
-  
+
       axios(config)
-      .then(response => {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(error => {
-        console.log(error);
-      });
+        .then(response => {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
     else {
       let data = JSON.stringify({
@@ -100,65 +101,72 @@ function Edit() {
       var config = {
         method: 'patch',
         url: `https://my-study-club.herokuapp.com/flashcards/${location.state.id}`,
-        headers: { 
+        headers: {
           'Content-Type': 'application/json'
         },
-        data : data
+        data: data
       };
 
       axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
   }
 
   return (
     <>
-      <h1>Flashcard</h1>
+    <BackButton />
       <div className="container_v">
-        <form  onSubmit={handleSubmit}>
+        
+        <form onSubmit={handleSubmit}>
+          
           <div className="box">
+            
             <h2>Question</h2><div className="record" onClick={() => {
-                                                  setQActive(true)
-                                                  setIsListening(prevState => !prevState)
-                                                  }}>{isListening && qActive ? <span className="record">🛑</span> : <span className="record">🎙️</span>}</div>
+              setQActive(true)
+              setIsListening(prevState => !prevState)
+            }}>{isListening && qActive ? <span className="record">🛑</span> : <span className="record">🎙️</span>}</div>
             {(!questionSaved) ?
-            <input type="textarea"
-              name="question"
-              onChange={(e) => setQuestion(e.target.value)}
-              value={question}
-            />
-            :
-            <h3>{question}</h3>
+              <input type="textarea"
+                name="question"
+                onChange={(e) => setQuestion(e.target.value)}
+                value={question}
+              />
+              :
+              <h3>{question}</h3>
             }
           </div>
         </form>
-        <form  onSubmit={handleAnswerSubmit}>
+        <form onSubmit={handleAnswerSubmit}>
           <div className="box">
             <h2>Answer</h2><div onClick={() => {
-                                                  setQActive(false)
-                                                  setIsListening(prevState => !prevState)
-                                                  }}>{isListening && !qActive ? <span className="record">🛑</span> : <span className="record">🎙️</span>}</div>
+              setQActive(false)
+              setIsListening(prevState => !prevState)
+            }}>{isListening && !qActive ? <span className="record">🛑</span> : <span className="record">🎙️</span>}</div>
             {(!answerSaved) ?
-            <input type="textarea" 
-              name="answer"
-              onChange={(e) => setAnswer(e.target.value)} 
-              value={answer}
-            />
-            :
-            <h3>{answer}</h3>
+              <input type="textarea"
+                name="answer"
+                onChange={(e) => setAnswer(e.target.value)}
+                value={answer}
+              />
+              :
+              <h3>{answer}</h3>
             }
           </div>
         </form>
       </div>
-      <button onClick={() => {
-                            postFlashcard()
-                            navigate("/login/set")
-                            }}>Save</button>
+      
+      <div style={{width:"100%",textAlign:"center"}}>
+        <button className="saveBtn" onClick={() => {
+          postFlashcard()
+          navigate("/login/set")
+        }}>Save</button>
+      </div>
+      
     </>
   )
 }

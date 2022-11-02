@@ -1,14 +1,11 @@
 import React from 'react'
 import './home.css'
 
-
 const Home = () => {
 
   return (
     <div className="homepage">
-      {/* <Header /> */}
       <div className="home">
-      {/* <h1>home page</h1> */}
       <section className="home-create">
         <img src="" alt="study page sc" />
       <p style={{color:"#47ad96"}}> Easily create and test your knowledge with flashcards.</p>

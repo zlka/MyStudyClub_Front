@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { redirect, useNavigate } from 'react-router-dom'
 import { setAuthToken } from '../../helpers/setAuthToken'
 import axios from 'axios';
 import './login.css'

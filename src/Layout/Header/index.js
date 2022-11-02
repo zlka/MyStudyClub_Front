@@ -86,7 +86,7 @@ function Header(props) {
         <div className="modal" style={{display: dis}} hidden={!hidden}>
           <div className="login-modal">
           <XLg onClick={closeModal} className="exit-btn"/>
-          <SignIn hidden={true}/>
+          <SignIn/>
           </div>
         </div>
 

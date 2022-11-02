@@ -13,6 +13,8 @@ const SignUp = () => {
     password: ""
   })
 
+  console.log(newUser.user_name)
+
   function signMeUp(event) {
     axios({
       method: "POST",

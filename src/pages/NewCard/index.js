@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import {useLocation, useNavigate} from 'react-router-dom';
-import './edit.css'
 import axios from 'axios';
 
 const SpeechRecognition =
@@ -11,14 +10,14 @@ mic.continuous = true
 mic.interimResults = true
 mic.lang = 'en-US'
 
-function Edit() {
+function NewCard() {
   const location = useLocation();
   const navigate = useNavigate();
   const [qActive, setQActive] = useState(true)
   const [isListening, setIsListening] = useState(false)
 
-  const [question, setQuestion] = useState(location.state.question)
-  const [answer, setAnswer] = useState(location.state.answer)
+  const [question, setQuestion] = useState("")
+  const [answer, setAnswer] = useState("")
   const [questionSaved, setQuestionSaved] = useState(false)
   const [answerSaved, setAnswerSaved] = useState(false)
 
@@ -67,53 +66,28 @@ function Edit() {
     setAnswerSaved(true)
   }
   const postFlashcard = (e) => {
-    if (!location.state) {
-      let data = JSON.stringify({
-        "question": question,
-        "answer": answer,
-        "set_id": 4,
-      });
-  
-      let config = {
-        method: 'post',
-        url: 'https://my-study-club.herokuapp.com/flashcards',
-        headers: { 
-          'Content-Type': 'application/json'
-        },
-        data : data
-      };
-  
-      axios(config)
-      .then(response => {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(error => {
-        console.log(error);
-      });
-    }
-    else {
-      let data = JSON.stringify({
-        "question": question,
-        "answer": answer
-      });
+    let data = JSON.stringify({
+    "question": question,
+    "answer": answer,
+    "set_id": location.state,
+    });
 
-      var config = {
-        method: 'patch',
-        url: `https://my-study-club.herokuapp.com/flashcards/${location.state.id}`,
-        headers: { 
-          'Content-Type': 'application/json'
-        },
-        data : data
-      };
+    let config = {
+    method: 'post',
+    url: 'https://my-study-club.herokuapp.com/flashcards',
+    headers: { 
+        'Content-Type': 'application/json'
+    },
+    data : data
+    };
 
-      axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    }
+    axios(config)
+    .then(response => {
+    console.log(JSON.stringify(response.data));
+    })
+    .catch(error => {
+    console.log(error);
+    });
   }
 
   return (
@@ -163,23 +137,4 @@ function Edit() {
   )
 }
 
-export default Edit
-
-
-/* <div className="box">
-          <h2>Current Note</h2>
-          {isListening ? <span>🎙️</span> : <span>🛑🎙️</span>}
-          <button className="e-btn" onClick={handleSaveNote} disabled={!note}>
-            Save Note
-          </button>
-          <button className="e-btn" onClick={() => setIsListening(prevState => !prevState)}>
-            Start/Stop
-          </button>
-          <p>{note}</p>
-        </div>
-        <div className="box">
-          <h2>Notes</h2>
-          {savedNotes.map(n => (
-            <p key={n}>{n}</p>
-          ))}
-        </div> */
+export default NewCard

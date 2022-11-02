@@ -17,7 +17,7 @@ const ClubForm = () => {
         });
         
         let config = {
-          method: 'post',
+          method: 'POST',
           url: 'https://my-study-club.herokuapp.com/clubs',
           headers: { 
             'Content-Type': 'application/json'

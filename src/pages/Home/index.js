@@ -3,7 +3,6 @@ import './home.css'
 import flashcard from '../../static/flashcard.gif'
 import test from '../../static/test.gif'
 import cards from '../../static/cards.png'
-import logo from '../../static/logo.png'
 
 const Home = () => {
 

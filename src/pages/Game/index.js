@@ -5,25 +5,20 @@ import { GameCard, Timer } from '../../components'
 
 const Game = () => {
     const [Cards, setCards] = useState([])
-    const [statusMessage, setStatusMessage] = useState('Loading')
     const [clickId, setClickId] = useState(-1)
-    // const [countdown, setCountdown] = useState("you ready?")
+    const [load, setLoad] = useState(true)
 
     useEffect(() => {
         const fetchFlashcards = async () => {
-
-            setStatusMessage('Loading')
             try {
                 let { data } = await axios.get('https://my-study-club.herokuapp.com/flashcards/1')
                 shuffleCards(data)
-                setStatusMessage('')
             } catch (err) {
                 console.warn(err)
-                setStatusMessage(`Oops there's been an issue! ${err.message}`)
             }
         }
         fetchFlashcards()
-    }, []) // move to another page and call?
+    }, []) 
 
     const shuffleCards = (cards) => {
         let shuffledCards = []
@@ -31,7 +26,6 @@ const Game = () => {
             shuffledCards.push({ data: card.question, id: card.id, match: "" }, { data: card.answer, id: card.id, match: "" })
         ))
         shuffledCards.sort(() => Math.random() - 0.5)
-        console.log('game cards', shuffledCards)
         setCards(shuffledCards)
     }
 
@@ -63,25 +57,27 @@ const Game = () => {
     }
 
 
+    const startTime = () => {
+        setLoad(false)
+    }
 
 
+    return (
+        <div id="mainGame">
+            {load ? <p style={{marginTop: "10px",color:"grey"}}> Click to start </p> : <h1><Timer /></h1>}
 
-return (
-    <div id="mainGame">
-        
-        <h1><Timer /></h1>
 
-        <div>
+            <div>
 
+            </div>
+            <div className='card-grid' onClick={startTime}>
+
+                {Cards.map((card, i) => (
+                    <GameCard key={i} id={i} card={card} onCardClick={onCardClick} />
+                ))}
+            </div>
         </div>
-        <div className='card-grid'>
-
-            {Cards.map((card, i) => (
-                <GameCard key={i} id={i} card={card} onCardClick={onCardClick} />
-            ))}
-        </div>
-    </div>
-)
+    )
 
 };
 

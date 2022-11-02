@@ -3,7 +3,7 @@ import axios from "axios"
 import logo from '../../static/logo.png'
 import './header.css'
 import { XLg } from 'react-bootstrap-icons';
-import { SignIn, SignUp } from '../../components/'
+import { SignIn, SignUp } from '../../auth'
 
 function Header(props) {
   const [dis , setDisplay] = useState("")

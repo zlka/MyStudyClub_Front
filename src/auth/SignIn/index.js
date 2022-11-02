@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
 import { redirect, useNavigate } from 'react-router-dom'
+import { setAuthToken } from '../../helpers/setAuthToken'
 import axios from 'axios';
 import './login.css'
 
 
-const SignIn = (props) => {
+const SignIn = () => {
 
   const [loginForm, setLoginForm] = useState({
     email: "",
     password: ""
   })
-
-  const navigate = useNavigate();
 
   function logMeIn(event) {
     axios({
@@ -23,7 +22,15 @@ const SignIn = (props) => {
       }
     })
       .then((response) => {
-        props.setToken(response.data.access_token)
+        //get token from response
+        const userToken = response.data.access_token
+        //set JWT token to local
+        localStorage.setItem('token', userToken)
+        //set token to axios common header
+        setAuthToken(userToken);
+        //redirect user to dashboard page
+        window.location.href = '/dashboard'
+
       }).catch((error) => {
         if (error.response) {
           console.warn(error.response)
@@ -40,15 +47,6 @@ const SignIn = (props) => {
     event.preventDefault()
   }
 
-  function redirect () {
-    navigate('/dashboard')
-  }
-
-  function actions () {
-    logMeIn();
-    redirect()
-  }
-
   function handleChange(event) {
     const { value, name } = event.target
     setLoginForm(prevNote => ({
@@ -57,29 +55,26 @@ const SignIn = (props) => {
   }
   return (
 
-  <div>
+    <div>
+      <form className="login">
 
+        <label>Email address</label>
+        <input onChange={handleChange}
+          type="email"
+          text={loginForm.email}
+          name="email"
+          value={loginForm.email} />
 
+        <label>Password</label>
+        <input onChange={handleChange}
+          type="password"
+          text={loginForm.password}
+          name="password"
+          value={loginForm.password} />
 
-<form className="login">
-
-    <label>Email address</label>
-      <input onChange={handleChange}
-        type="email"
-        text={loginForm.email}
-        name="email"
-        value={loginForm.email} />
-
-     <label>Password</label>
-     <input onChange={handleChange}
-        type="password"
-        text={loginForm.password}
-        name="password"
-        value={loginForm.password} />
-
-      <button id="submit" onClick={logMeIn}>Log In</button>
-    </form>
-    {/* <Form className='login'>
+        <button id="submit" onClick={logMeIn}>Log In</button>
+      </form>
+      {/* <Form className='login'>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <label>Email address</label>
         <Form.Control onChange={handleChange}
@@ -111,9 +106,7 @@ const SignIn = (props) => {
         Submit
       </Button>
     </Form> */}
-    
-    
-  </div>
+    </div>
   )
 }
 

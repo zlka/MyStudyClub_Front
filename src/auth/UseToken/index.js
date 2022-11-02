@@ -10,9 +10,6 @@ const useToken = () => {
 	// used to handle the state of the token. Ensures that the app always reloads when any funciton is called.
 	const [token, setToken] = useState(getToken())
 
-  function logged() {
-    return !!token
-  }
 
 	// handles the storage of the token obtained when users log in
 	function saveToken(userToken) {
@@ -29,7 +26,7 @@ const useToken = () => {
     setToken: saveToken,
     token,
     removeToken,
-    logged
+    getToken
   }
 }
 

@@ -8,14 +8,16 @@ const ClubForm = () => {
     const [error, setError] = useState(null)
 
     const handleSubmit = async (e) => {
+
         e.preventDefault()
+
         let data = JSON.stringify({
           "title": title,
           "code": code
         });
         
         let config = {
-          method: 'post',
+          method: 'POST',
           url: 'https://my-study-club.herokuapp.com/clubs',
           headers: { 
             'Content-Type': 'application/json'
@@ -31,11 +33,14 @@ const ClubForm = () => {
           setError(error)
           console.log(error);
         });
+
+        setTitle('')
+        setCode('')
     }
   
     return (
-      <form className="create" onSubmit={handleSubmit}> 
-        <h3>Create a new Club</h3>
+      <form className="create" onSubmit={handleSubmit} id='createGroupForm'> 
+        <h3>Create New Club</h3>
   
         <label>Club Name</label>
         <input 

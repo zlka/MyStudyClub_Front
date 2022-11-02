@@ -9,8 +9,6 @@ const HandleClub = () => {
   
 }
 
-
-
 const Resolver = (props) => {
       console.log(props.data)
     return(

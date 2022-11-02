@@ -1,4 +1,4 @@
-import React,{ useState,useEffect} from 'react'
+import React,{ useState,useEffect,useNavigate} from 'react'
 import axios from "axios"
 import logo from '../../static/logo.png'
 import './header.css'
@@ -8,17 +8,17 @@ import { XLg,Search } from 'react-bootstrap-icons';
 
 function Header(props) {
   const [dis , setDisplay] = useState("")
-  const [hidden , setHidden] = useState(true)
   const [appear , setAppear] = useState(true)
-
   const [data,setData] = useState('')
   const [searchResults,setResults]=useState([])
   const [wordEntered, setWordEntered] = useState("");
 
+  const navigate = useNavigate
+
   useEffect(() => {
     const fetchData = async () => {
         try {
-            let { data } = await axios.get('https://my-study-club.herokuapp.com/sets')
+            let { data } = await axios.get('https://my-study-club.herokuapp.com/flashcards')
             setData(data)
         } catch (err) {
             console.log("doesn't work")
@@ -32,7 +32,7 @@ function Header(props) {
     setWordEntered(searchWord);
 
     const newFilter = data.filter((d) => {
-      return d.set_name.toLowerCase().includes(searchWord.toLowerCase());
+      return d.set.set_name.toLowerCase().includes(searchWord.toLowerCase());
     });
 
     if (searchWord === "") {
@@ -45,7 +45,7 @@ function Header(props) {
 
   const openModal= () => {
     setDisplay("block")
-    setHidden(!hidden)
+    setAppear(!appear)
   };
 
 
@@ -58,8 +58,8 @@ function Header(props) {
       <img src={logo} alt="my study club" />
 
 
-    <div>
-      <div className="searchBar">
+    <div className='find'>
+      <div className="searchBar" >
         <input className ="search" type="text" value={wordEntered} onChange={handleFilter}/>
         <button className="searchBtn" style={{color:'grey'}}><Search /></button>
        </div>
@@ -67,30 +67,33 @@ function Header(props) {
         <div className="dataResult">
           {searchResults.map((result,idx) => {
             return(
-              <p key={idx} className="dataItem">{result.set_name}</p>
+              <button key={idx} className="dataItem" onClick={() => navigate('/dashboard/set',{state:result.set_id})}>{result.set.set_name}</button>
             )
           })}
         </div>
         )}
-
-       
+        <div>
+           {/* <button id='logout'>Log out</button>  */}
+    </div>
       </div>
+    
+    
       
         
 
-      <div className="registration" >
+      <div className="registration" hidden={props.hide}>
         <button id="login" onClick={openModal} > Login </button> | 
         <button id="register" onClick={openModal}> Sign Up </button>
         {/* <button  onClick={logMeOut}>Logout </button> */}
 
-        <div className="modal" style={{display: dis}} hidden={!hidden}>
+        <div className="modal" style={{display: dis}} hidden={!appear}>
           <div className="login-modal">
           <XLg onClick={closeModal} className="exit-btn"/>
           <SignIn hidden={true}/>
           </div>
         </div>
 
-        <div className="modal" style={{display: dis}} hidden={hidden}>
+        <div className="modal" style={{display: dis}} hidden={appear}>
           <div className="register-modal">
             <XLg onClick={closeModal} className="exit-btn"/>
             <SignUp/>

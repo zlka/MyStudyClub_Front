@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import './clubform.css'
 
 const ClubForm = () => {
     const [title, setTitle] = useState('')

@@ -131,7 +131,7 @@ function NewCard() {
       </div>
       <button onClick={() => {
                             postFlashcard()
-                            navigate("/login/set")
+                            navigate("/dashboard/set", {state:location.state})
                             }}>Save</button>
     </>
   )

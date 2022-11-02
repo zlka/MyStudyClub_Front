@@ -8,6 +8,7 @@ import { XLg, Search } from 'react-bootstrap-icons';
 
 
 function Header(props) {
+  const token = localStorage.getItem('token')
   const [dis, setDisplay] = useState("")
   const [appear, setAppear] = useState(true)
   const [data, setData] = useState('')
@@ -96,8 +97,15 @@ function Header(props) {
 
 
       <div className="registration" hidden={hidden}>
-        <button id="login" onClick={openModal} > Login </button> |
-        <button id="register" onClick={openModal}> Sign Up </button>
+        {!localStorage.getItem('token') ?
+        <div><button id="login" onClick={openModal} > Login </button>
+        <button id="register" onClick={openModal}> Sign Up </button></div>
+        : 
+        <button id="logout" onClick={() => {window.location.href = '/' 
+                                            localStorage.clear()}
+                                            }> Logout </button>
+        }
+        
         {/* <button  onClick={logMeOut}>Logout </button> */}
 
         <div className="modal" style={{ display: dis }} hidden={!appear}>

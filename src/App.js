@@ -60,6 +60,14 @@ function App() {
                   <Navigate to={{ pathname: '/' }}/>
                 )}
           />
+          <Route path='/dashboard/new'
+            element={
+              hasJWT() ?
+                <NewCard />
+                : (
+                  <Navigate to={{ pathname: '/' }}/>
+                )}
+          />
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
         <Footer />

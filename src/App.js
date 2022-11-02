@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { CardView, Dashboard, Dashboard2, Home, Game, Set, Edit } from './pages';
+import { CardView, NotFound, Dashboard2, Home, Game, Set, Edit } from './pages';
 import { setAuthToken } from './helpers/setAuthToken';
 import { Footer, Header } from './layout'
 import './App.css'

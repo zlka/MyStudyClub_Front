@@ -6,8 +6,8 @@ function NotFound() {
   const location = useLocation()
   return (
     <>
-      <h1>Sorry, { location.pathname } not found</h1>
-      <Link to="/">Please go to Home Page</Link>
+      <h1>404 Page not found</h1>
+      <h4>Please go to <Link to="/">Home Page</Link></h4>
     </>
   );
 }

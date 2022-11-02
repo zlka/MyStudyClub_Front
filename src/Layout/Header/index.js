@@ -1,5 +1,5 @@
-import React,{ useState } from 'react'
-// import axios from "axios"
+import React,{ useState,useEffect} from 'react'
+import axios from "axios"
 import logo from '../../static/logo.png'
 import './header.css'
 import { XLg,Search } from 'react-bootstrap-icons';
@@ -10,7 +10,37 @@ function Header(props) {
   const [hidden , setHidden] = useState(true)
   const [appear , setAppear] = useState(true)
 
-  
+  const [data,setData] = useState('')
+  const [searchResults,setResults]=useState([])
+  const [wordEntered, setWordEntered] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+        try {
+            let { data } = await axios.get('https://my-study-club.herokuapp.com/sets')
+            setData(data)
+        } catch (err) {
+            console.log("doesn't work")
+        }
+    }
+    fetchData()
+}, [])
+
+  const handleFilter = (e) => {
+    const searchWord = e.target.value;
+    setWordEntered(searchWord);
+
+    const newFilter = data.filter((d) => {
+      return d.set_name.toLowerCase().includes(searchWord.toLowerCase());
+    });
+
+    if (searchWord === "") {
+      setResults([]);
+    } else {
+      setResults(newFilter);
+    }
+  };
+
 
   const openModal= () => {
     setDisplay("block")
@@ -26,11 +56,26 @@ function Header(props) {
     <header className="navHeader">
       <img src={logo} alt="my study club" />
 
-      <div className="searchBar" hidden={appear}>
-        <input className ="search" type="text" />
+
+    <div>
+      <div className="searchBar">
+        <input className ="search" type="text" value={wordEntered} onChange={handleFilter}/>
         <button className="searchBtn" style={{color:'grey'}}><Search /></button>
-        
+       </div>
+       {searchResults.length > 0 && (
+        <div className="dataResult">
+          {searchResults.map((result,idx) => {
+            return(
+              <p key={idx} className="dataItem">{result.set_name}</p>
+            )
+          })}
+        </div>
+        )}
+
+       
       </div>
+      
+        
 
       <div className="registration" >
         <button id="login" onClick={openModal} > Login </button> | 

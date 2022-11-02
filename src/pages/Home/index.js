@@ -1,13 +1,13 @@
 import React from 'react'
 import './home.css'
-import { Header } from '../../Layout'
+import { Header } from '../../layout'
 import logo from '../../static/logo.png'
 
 const Home = () => {
+
   return (
     <div className="homepage">
       {/* <Header /> */}
-      
       <div className="home">
       {/* <h1>home page</h1> */}
       <section className="home-create">

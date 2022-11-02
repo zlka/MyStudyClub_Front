@@ -45,7 +45,7 @@ const SignIn = (props) => {
   }
 
   function actions () {
-    SignIn();
+    logMeIn();
     redirect()
   }
 
@@ -77,7 +77,7 @@ const SignIn = (props) => {
         name="password"
         value={loginForm.password} />
 
-      <button id="submit" onClick={actions}>Log In</button>
+      <button id="submit" onClick={logMeIn}>Log In</button>
     </form>
     {/* <Form className='login'>
       <Form.Group className="mb-3" controlId="formBasicEmail">

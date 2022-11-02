@@ -66,8 +66,8 @@ const SignUp = () => {
     <input onChange={handleChange}
       type="email"
       text={newUser.email}
-      name="emailUp"
-      id="emailUp"
+      name="email"
+      id="emailup"
       value={newUser.email}/>
     <p className="text-muted" >We'll never share your email with anyone else </p>
 
@@ -75,7 +75,7 @@ const SignUp = () => {
     <input onChange={handleChange}
       type="password"
       text={newUser.password}
-      name="passwordUp"
+      name="password"
       id="passwordUp"
       value={newUser.password}/>
 

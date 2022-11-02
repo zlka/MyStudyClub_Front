@@ -157,7 +157,7 @@ function Edit() {
       </div>
       <button onClick={() => {
                             postFlashcard()
-                            navigate("/login/set")
+                            navigate("/dashboard/set", {state:location.state.set_id})
                             }}>Save</button>
     </>
   )

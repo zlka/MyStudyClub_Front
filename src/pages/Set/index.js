@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react'
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 import { FlashcardList } from '../../components';
 import './set.css'
 
 
 function Set() {
+  const location = useLocation()
     
   // new line start
   const [flashcards, setFlashcards] = useState(null)
-  const [setId, setSetId] = useState(1)
+  const [setId, setSetId] = useState(3)
 
   useEffect(() => {
     axios({

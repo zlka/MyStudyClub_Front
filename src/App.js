@@ -37,14 +37,41 @@ function App() {
               hasJWT() ?
                 <Dashboard2 />
                 : (
-                  <Navigate to={{ pathname: '/home' }} />
+                  <Navigate to={{ pathname: '/home' }}/>
                 )}
-          >
-            <Route path="practise" element={<CardView />}></Route>
-            <Route path="test" element={<Game />}></Route>
-            <Route path="set" element={<Set />}></Route>
-            <Route path="edit" element={<Edit />}></Route>
-          </Route>
+          />
+          <Route path='dashboard/practise'
+            element={
+              hasJWT() ?
+                <CardView />
+                : (
+                  <Navigate to={{ pathname: '/home' }}/>
+                )}
+          />
+          <Route path='/dashboard/test'
+            element={
+              hasJWT() ?
+                <Game />
+                : (
+                  <Navigate to={{ pathname: '/home' }}/>
+                )}
+          />
+          <Route path='/dashboard/set'
+            element={
+              hasJWT() ?
+                <Set />
+                : (
+                  <Navigate to={{ pathname: '/home' }}/>
+                )}
+          />
+          <Route path='/dashboard/edit'
+            element={
+              hasJWT() ?
+                <Edit />
+                : (
+                  <Navigate to={{ pathname: '/home' }}/>
+                )}
+          />
         </Routes>
         <Footer />
       </main>

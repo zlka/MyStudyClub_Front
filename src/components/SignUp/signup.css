@@ -4,6 +4,7 @@
     flex-direction: column;
     gap: 15px;
     font-size: 16px;
+    font-family:'poppins';
 }
 
 #formInput{

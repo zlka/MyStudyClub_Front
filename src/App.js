@@ -28,7 +28,7 @@ function App() {
                   <Navigate to={{ pathname: '/' }}/>
                 )}
           />
-          <Route path='dashboard/practise'
+          <Route path='/dashboard/practise'
             element={
               hasJWT() ?
                 <CardView />

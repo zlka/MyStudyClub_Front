@@ -8,16 +8,15 @@ import { XLg, Search } from 'react-bootstrap-icons';
 
 
 function Header(props) {
-  const token = localStorage.getItem('token')
   const [displayLogin, setLogin] = useState("")
   const [displayLogout, setLogout] = useState("")
-  const [appear, setAppear] = useState(true)
   const [data, setData] = useState('')
   const [searchResults, setResults] = useState([])
   const [wordEntered, setWordEntered] = useState("");
   const [hidden, setHidden] = useState(false)
 
   const navigate = useNavigate()
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -71,8 +70,8 @@ function Header(props) {
       <a href="/"><img src={logo} alt="my study club" /></a>
       
 
-
-      <div className='find'>
+      {localStorage.getItem('token') ?
+        <div className='find'>
         <div className="searchBar" >
           <input className="search" type="text" value={wordEntered} onChange={handleFilter} />
           <button className="searchBtn" style={{ color: 'grey' }}><Search /></button>
@@ -86,10 +85,28 @@ function Header(props) {
             })}
           </div>
         )}
-        <div>
-          <button id='logout' hidden={!hidden}>Log out</button>
-        </div>
       </div>
+        : 
+        (
+          <>
+          </>                        
+        )
+        }
+      {/* <div className='find' hidden={!hidden}>
+        <div className="searchBar" >
+          <input className="search" type="text" value={wordEntered} onChange={handleFilter} />
+          <button className="searchBtn" style={{ color: 'grey' }}><Search /></button>
+        </div>
+        {searchResults.length > 0 && (
+          <div className="dataResult">
+            {searchResults.map((result, idx) => {
+              return (
+                <button key={idx} className="dataItem" onClick={() => navigate("/dashboard/set", { state: result.set_id })}>{result["set.set_name"]}</button>
+              )
+            })}
+          </div>
+        )}
+      </div> */}
 
 
 
@@ -97,12 +114,14 @@ function Header(props) {
 
       <div className="registration" hidden={hidden}>
         {!localStorage.getItem('token') ?
-        <div><button id="login" onClick={openLoginModal} > Login </button>  |
+        <div><button id="login" onClick={openLoginModal} > Login  </button>  |
         <button id="register" onClick={openLogoutModal}> Sign Up </button></div>
         : 
-        <button id="logout" onClick={() => {window.location.href = '/' 
+        (<button id="logout" onClick={() => {window.location.href = '/' 
                                             localStorage.clear()}
                                             }> Logout </button>
+                                            
+        )
         }
         
         <div className="modal" style={{ display: displayLogin }} >
@@ -126,6 +145,7 @@ function Header(props) {
 }
 
 export default Header
+
 // function logMeOut() {
   //   axios({
   //     method: "POST",

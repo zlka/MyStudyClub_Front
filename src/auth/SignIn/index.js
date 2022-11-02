@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { redirect, useNavigate } from 'react-router-dom'
 import { setAuthToken } from '../../helpers/setAuthToken'
 import axios from 'axios';
 import './login.css'
@@ -39,7 +38,6 @@ const SignIn = (props) => {
           console.warn(error.response.status)
           console.warn(error.response.headers)
           setHidden(false)
-          console.log('error', hidden)
         }
       })
 
@@ -68,7 +66,8 @@ const SignIn = (props) => {
           type="email"
           text={loginForm.email}
           name="email"
-          value={loginForm.email} />
+          value={loginForm.email} 
+          required/>
 
         <label>Password</label>
         <input onChange={handleChange}
@@ -76,10 +75,11 @@ const SignIn = (props) => {
           type="password"
           text={loginForm.password}
           name="password"
-          value={loginForm.password} />
+          value={loginForm.password} 
+          required/>
 
         <button id="submitLog" onClick={logMeIn}>Log In</button>
-        <p hidden={hidden} style={{color:"orange"}}> Please check you email or password</p>
+        <p hidden={hidden} style={{color:"orange"}}> Please check your email or password</p>
         
       </form>
       {/* <Form className='login'>

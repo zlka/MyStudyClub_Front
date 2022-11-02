@@ -1,6 +1,5 @@
 .gameCard  {
     position: relative;
-    width: 30vw;
     border: 2px solid #00a6a6;
     border-radius: 6px;
     display: block;
@@ -11,6 +10,7 @@
     align-items: center;
     font-size: 20px;
     cursor: pointer;
+    padding:10px;
 }
 
 .gameCard.wrong {

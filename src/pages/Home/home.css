@@ -1,6 +1,6 @@
 .homepage {
     /* border: 2px solid red; */
-    height: 100%;
+    /* height: fit-content; */
 }
 .home {
     border-top: 2px solid whitesmoke;
@@ -15,7 +15,7 @@
 
 .home-create, .home-edit, .home-test {
     /* border: 2px solid green; */
-    height: 100%;
+    /* height: 100%; */
     margin: 50px;
     width: 80%;
     display: flex;
@@ -32,8 +32,15 @@
 
 }
 .home-create img, .home-edit img, .home-test img{
-    /* border: 2px solid black; */
     background-color: white;
     width: 20%
 
+}
+
+.home-edit img{
+    width: 40%
+}
+
+.home-test img{
+    width: 25%
 }

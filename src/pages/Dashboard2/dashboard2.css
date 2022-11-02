@@ -32,12 +32,16 @@ header a {
   margin: 0 auto;
 }
 
+.create{
+  margin: 10px;
+}
 /* homepage */
 .home-dash {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 100px;
-  margin: 10px
+  margin: 10px;
+  margin-bottom: 20px;
 }
 .club-details {
   background: #fff;
@@ -86,6 +90,7 @@ form button {
   border: 0;
   color: #fff;
   padding: 10px;
+  margin-top: 5px;
   font-family: "Poppins";
   border-radius: 4px;
   cursor: pointer;

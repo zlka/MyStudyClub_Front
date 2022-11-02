@@ -9,7 +9,8 @@ import { XLg, Search } from 'react-bootstrap-icons';
 
 function Header(props) {
   const token = localStorage.getItem('token')
-  const [dis, setDisplay] = useState("")
+  const [displayLogin, setLogin] = useState("")
+  const [displayLogout, setLogout] = useState("")
   const [appear, setAppear] = useState(true)
   const [data, setData] = useState('')
   const [searchResults, setResults] = useState([])
@@ -49,23 +50,21 @@ function Header(props) {
     }
   };
 
-  const openModal = () => {
-    setDisplay("block")
-    setAppear(!appear)
-  };
+  
 
-
-  const closeModal = () => {
-    setDisplay("none")
-  };
-
-  function hasJWT() {
-    let flag = false;
-    //check user has JWT token
-    localStorage.getItem('token') ? flag = true : flag = false
-    setHidden(flag)
-    return flag
+  const openLoginModal = () => {
+    setLogin("block")
   }
+  const openLogoutModal = () => {
+    setLogout("block")
+  }
+
+  const closeLoginModal = () => {
+    setLogin("none")
+  };
+  const closeLogoutModal = () => {
+    setLogout("none")
+  };
 
   return (
     <header className="navHeader">
@@ -98,26 +97,24 @@ function Header(props) {
 
       <div className="registration" hidden={hidden}>
         {!localStorage.getItem('token') ?
-        <div><button id="login" onClick={openModal} > Login </button>
-        <button id="register" onClick={openModal}> Sign Up </button></div>
+        <div><button id="login" onClick={openLoginModal} > Login </button>  |
+        <button id="register" onClick={openLogoutModal}> Sign Up </button></div>
         : 
         <button id="logout" onClick={() => {window.location.href = '/' 
                                             localStorage.clear()}
                                             }> Logout </button>
         }
         
-        {/* <button  onClick={logMeOut}>Logout </button> */}
-
-        <div className="modal" style={{ display: dis }} hidden={!appear}>
+        <div className="modal" style={{ display: displayLogin }} >
           <div className="login-modal">
-            <XLg onClick={closeModal} className="exit-btn" />
+            <XLg onClick={closeLoginModal} className="exit-btn" />
             <SignIn hidden={true} />
           </div>
         </div>
 
-        <div className="modal" style={{ display: dis }} hidden={appear}>
+        <div className="modal" style={{ display: displayLogout }} >
           <div className="register-modal">
-            <XLg onClick={closeModal} className="exit-btn" />
+            <XLg onClick={closeLogoutModal} className="exit-btn" />
             <SignUp />
           </div>
         </div>

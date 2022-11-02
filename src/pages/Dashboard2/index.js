@@ -20,7 +20,7 @@ function Dashboard2() {
     <div className="home-dash">
       <div className="workouts">
         {clubs ? clubs.map(club => (
-              <ClubDetails  club={club} key={club.id} />
+              <ClubDetails club={club} key={club.id} />
             )) : <h3> Loading </h3>}
       </div>
       <ClubForm />

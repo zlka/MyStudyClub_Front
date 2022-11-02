@@ -1,9 +1,11 @@
 import React from 'react'
 import axios from 'axios';
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import { useNavigate, Link } from 'react-router-dom';
 
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 const ClubDetails = ({club}) => {
-    const handleClick = async () => {
+  const navigate = useNavigate()
+    const handleDeleteClick = async () => {
 
       let config = {
         method: 'delete',
@@ -20,13 +22,18 @@ const ClubDetails = ({club}) => {
       });
     }
 
+    const handleNavClick = async (e) => {
+      const nav = e.target.id
+      
+    }
+
 
     return (
-        <div className="club-details">
-          <h4>{club.club_name}</h4>
+        <div className="club-details" >
+          <h3 onClick={() => navigate("/dashboard/club", { state: club.id })}>{club.club_name}</h3>
           <p><strong>Club Code: </strong>{club.club_code}</p>
           <p>{formatDistanceToNow(new Date(club.created_at), { addSuffix: true })}</p>
-          <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
+          <span className="material-symbols-outlined" onClick={handleDeleteClick}>delete</span>
         </div>
       )
 }

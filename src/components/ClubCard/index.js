@@ -18,7 +18,7 @@ const ClubCard = (props) => {
             </Card.Text>
             <Button variant="primary">Go somewhere</Button>
           </Card.Body>
-          <Card.Footer className="text-muted">Sets : {props.set}</Card.Footer>
+          <Card.Footer className="textpor-muted">Sets : {props.set}</Card.Footer>
         </Card>
       );
 }

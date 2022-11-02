@@ -3,16 +3,16 @@ import { ClubCard } from '../../components'
 import './index.css'
 
 const ClubView = () => {
-    const things = [["Biology","6"]["Maths","4"]]
+    const things = [["Biology","6"],["Maths","4"],["Something","5"]]
     return (
 
-        things.map((cell) => {
+        things.map((cell, index) => {
             
             return (
                 
-                <div className="main">
-                <ClubCard/>
-                </div>
+                
+                <ClubCard name={cell[0]} set={cell[1]}/>
+                
                 )
                 
             })

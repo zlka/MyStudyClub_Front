@@ -1,16 +1,13 @@
 import React from 'react'
-<<<<<<< HEAD
-import { Routes, Route } from 'react-router-dom'
-import { CardView, Dashboard, Home, Login, Game, ClubView } from './pages';
-import { useToken, Profile, SignIn } from './components'
+
+
 import { Header, Footer } from './Layout'
-=======
+
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { CardView, NotFound, Dashboard2, Home, Game, Set, Edit, NewCard } from './pages';
-import { Footer, Header } from './Layout'
+import { CardView, NotFound, Dashboard2, Home, Game, Set, Edit, NewCard, ClubView } from './pages';
 import './App.css'
 
->>>>>>> 6a0a02e51ed606fd6ddc49258c30238ff87bd8e4
+
 
 function App() {
 
@@ -21,28 +18,8 @@ function App() {
     return flag
   }
 
-<<<<<<< HEAD
-	return (
-		<div className="App">
-			<main>
-			
-						
-						
-							
-							<Routes>
-								<Route path='/profile' element={<Profile token={token} setToken={setToken} />}></Route>
-								<Route path="/dashboard" element={<Dashboard />}></Route>
-								<Route path="practise" element={<CardView />}></Route>
-								<Route path="test" element={<Game />}></Route>
-								<Route path="/club" element={<ClubView />}></Route>
-							</Routes>
-							
-						
-			<Footer />
-			</main>
-		</div>
-	);
-=======
+
+
   return (
     <div className="App">
       <main>
@@ -53,6 +30,14 @@ function App() {
             element={
               hasJWT() ?
                 <Dashboard2 />
+                : (
+                  <Navigate to={{ pathname: '/' }}/>
+                )}
+          />
+		  <Route path='/dashboard/club'
+            element={
+              hasJWT() ?
+                <ClubView />
                 : (
                   <Navigate to={{ pathname: '/' }}/>
                 )}
@@ -103,7 +88,7 @@ function App() {
       </main>
     </div>
   );
->>>>>>> 6a0a02e51ed606fd6ddc49258c30238ff87bd8e4
+
 }
 
 export default App;

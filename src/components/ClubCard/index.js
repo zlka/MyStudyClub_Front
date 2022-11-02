@@ -14,7 +14,7 @@ const ClubCard = (props) => {
           <Card.Body>
             <Card.Title></Card.Title>
             <Card.Text>
-              With supporting text below as a natural lead-in to additional content.
+              Some info here? 
             </Card.Text>
             <Button variant="primary">Go somewhere</Button>
           </Card.Body>

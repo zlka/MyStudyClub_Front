@@ -29,6 +29,8 @@ const SignIn = (props) => {
         localStorage.setItem('token', userToken)
         //add user id to localstorage
         localStorage.setItem('student_id', response.data.student_id)
+        //add username to localstorage
+        localStorage.setItem('username', response.data.user_name)
         //set token to axios common header
         setAuthToken(userToken);
         //redirect user to dashboard page

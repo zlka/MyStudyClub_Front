@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import './game.css'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { GameCard, Timer, BackButton } from '../../components'
 // import set from 'date-fns/set/index.js';
 // import { setDefaultOptions } from 'date-fns/esm';
 
 const Game = () => {
+    const location = useLocation()
     const [Cards, setCards] = useState([])
     const [clickId, setClickId] = useState(-1)
     const [load, setLoad] = useState(true)
@@ -36,8 +37,10 @@ const Game = () => {
 
     const onCardClick = (id) => {
         if (clickId === -1) {
+
             setClickId(id)
         } else {
+
             check(id)
         }
     };
@@ -70,7 +73,7 @@ const Game = () => {
     }
 
     const endGame = () => {
-        pairs === Cards.length ? setEnd(true) : setEnd(false)
+        pairs >= Cards.length && clickId % 2 == 0 ? setEnd(true) : setEnd(false)
     }
 
 
@@ -86,7 +89,7 @@ const Game = () => {
             }
         </div>
             {
-            end ? <button onClick={() => navigate("/dashboard/set")}>End Game </button> :
+            end ? <button onClick={() => navigate('/dashboard/club', {state: location.state})}>End Game </button> :
                 <div className='card-grid' onClick={startTime}>
                     {Cards.map((card, i) => (
                         <GameCard key={i} id={i} card={card} onCardClick={onCardClick} />))}

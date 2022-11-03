@@ -42,10 +42,15 @@ const ClubDetails = ({club}) => {
       });
     }
 
+    const handleNavClick = async (e) => {
+      const nav = e.target.id
+      
+    }
+
 
     return (
-        <div className="club-details">
-          <h4>{club.club_name}</h4>
+        <div className="club-details" >
+          <h3 onClick={() => navigate("/dashboard/club", { state: club.id })}>{club.club_name}</h3>
           <p><strong>Club Code: </strong>{club.club_code}</p>
           <p>{formatDistanceToNow(new Date(club.created_at), { addSuffix: true })}</p>
           <h2 id="club_link"className="material-symbols-outlined" onClick={() => navigate('/dashboard/club', {state: club.id})}>arrow_circle_right</h2>

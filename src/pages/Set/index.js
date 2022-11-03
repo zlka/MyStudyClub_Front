@@ -31,7 +31,7 @@ function Set() {
 
   return (
     <>
-    <BackButton />
+    <BackButton /><h3>Edit Set</h3>
       <div className="s-container">
         {flashcards ? <FlashcardList id={setId} flashcards={flashcards} /> : <h3> Loading... </h3>}
       </div>

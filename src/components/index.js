@@ -4,8 +4,6 @@ export { default as Card } from './Flashcards'
 export { default as GameCard } from './GameCard'
 export { default as Timer } from './GameTimer'
 
-// export { default as SignIn } from './SignIn'
-// export { default as SignUp } from './SignUp'
 export { default as ClubCard } from './ClubCard'
 export { default as Flashcard } from './Flashcard'
 export { default as FlashcardList } from './FlashcardList'

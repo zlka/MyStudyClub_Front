@@ -90,11 +90,3 @@ function App() {
 
 export default App;
 
-{/* <Header token={removeToken} />
-<Routes>
-	<Route index path="/" element={<Home />}></Route>
-	{/* ensures user must have a token */}
-	// <Route path='/login/*' element={!token && token !== "" && token !== undefined ?
-	// 	<Login />
-	// 	: 
-	// 	( */}

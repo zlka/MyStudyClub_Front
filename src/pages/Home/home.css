@@ -1,7 +1,3 @@
-.homepage {
-    /* border: 2px solid red; */
-    /* height: fit-content; */
-}
 .home {
     border-top: 2px solid whitesmoke;
     height:1000px;
@@ -10,12 +6,10 @@
     justify-content: center;
     align-items: center;
     padding-top: 30px;
-    background-color:aliceblue;
+    background-color:white;
 }
 
 .home-create, .home-edit, .home-test {
-    /* border: 2px solid green; */
-    /* height: 100%; */
     margin: 50px;
     width: 80%;
     display: flex;
@@ -25,7 +19,6 @@
 
 
 .home-create p, .home-edit p, .home-test p{
-    /* border: 2px solid black; */
     padding: 10px;
     width: 30%;
     align-self: center;

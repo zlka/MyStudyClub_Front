@@ -19,7 +19,7 @@ const ClubCard = (props) => {
             <button variant="primary"><Back /> Test</button>
             </div>
           </Card.Body>
-          <Card.Footer className="text-muted">Sets : {props.set}</Card.Footer>
+          <Card.Footer className="text-muted">Club : {props.set}</Card.Footer>
         </Card>
       );
 }

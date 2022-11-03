@@ -27,6 +27,8 @@ const SignIn = (props) => {
         const userToken = response.data.access_token
         //set JWT token to local
         localStorage.setItem('token', userToken)
+        //add user id to localstorage
+        localStorage.setItem('student_id', response.data.student_id)
         //set token to axios common header
         setAuthToken(userToken);
         //redirect user to dashboard page

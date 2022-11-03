@@ -123,9 +123,10 @@ function Header(props) {
         <div><button id="login" onClick={openLoginModal} > Login  </button>  |
         <button id="register" onClick={openLogoutModal}> Sign Up </button></div>
         : 
-        (<button id="logout" onClick={() => {window.location.href = '/' 
+        (<div><a href="/dashboard" id="login"> {localStorage.getItem("username")}  </a>  | 
+        <button id="logout" onClick={() => {window.location.href = '/' 
                                             localStorage.clear()}
-                                            }> Logout </button>
+                                            }> Logout </button></div>
                                             
         )
         }

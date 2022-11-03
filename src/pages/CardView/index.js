@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import './CardView.css';
 import axios from 'axios';
-import { Card } from '../../components'
+import { Card, BackButton } from '../../components'
 import { CaretLeftFill,CaretRightFill } from 'react-bootstrap-icons';
 import { useLocation } from "react-router-dom";
 
@@ -44,12 +44,12 @@ const CardView = () => {
     };
     return (
         <>
-        
+        <BackButton />
             <div role="main" id="Cards">
             {/* <h3>{ statusMessage ? statusMessage : <Card progress={`${flashcards[cardId].id} / ${flashcards.length}`} />}</h3>       */}
                 <CaretLeftFill id="arrow" onClick={previousQuestion} />
                     <div aria-label="card" id="card">
-                        {!statusMessage && <Card front={flashcards[cardId].question} back={flashcards[cardId].answer} />}
+                        {!statusMessage && <Card front={flashcards[cardId].answer} back={flashcards[cardId].question} />}
                     </div>
                 <CaretRightFill role='figure' id="arrow" onClick={nextQuestion} />
             </div>

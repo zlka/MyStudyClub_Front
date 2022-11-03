@@ -21,7 +21,7 @@ const ClubCard = (props) => {
           </Card.Header>
           <Card.Body>
             <Card.Title></Card.Title>
-            <div className="setBtn"> 
+            <div className="setBtn">
               <button 
               onClick={() => navigate("/dashboard/set", { state: props.id })}>
                 <Pencil /> Edit </button>

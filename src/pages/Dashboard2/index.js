@@ -16,10 +16,10 @@ function Dashboard2() {
   }, [clubs])
 
   return (
-    <> <BackButton />
+    <> <BackButton /> <h3>Dashboard</h3>
     <div className="home-dash">
       
-      <div className="workouts">
+      <div className="club-dash">
         {clubs ? clubs.map(club => (
 
               <ClubDetails  club={club} key={club.id} />

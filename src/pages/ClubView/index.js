@@ -46,7 +46,7 @@ const ClubView = () => {
         <div className="clubView">
             <div className="clubs">
                 {sets ? sets.map(set => (
-                    <ClubCard name={set.set_name} key={set.id} set={set["club.club_name"]} id={set.id}/>
+                    <ClubCard id={set.id} name={set.set_name} key={set.id} set={set["club.club_name"]} />
                 )) : <h3> Loading </h3>}
             </div>
             

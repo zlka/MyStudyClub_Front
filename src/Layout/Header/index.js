@@ -49,6 +49,12 @@ function Header(props) {
     }
   };
 
+  const handleFilterSearch = (result) => {
+    setWordEntered("")
+    setResults([]);
+    navigate("/dashboard")
+    navigate("/dashboard/set", { state: result.set_id })
+  }
   
 
   const openLoginModal = () => {
@@ -73,14 +79,14 @@ function Header(props) {
       {localStorage.getItem('token') ?
         <div className='find'>
         <div className="searchBar" >
-          <input className="search" type="text" value={wordEntered} onChange={handleFilter} />
+          <input id="search" className="search" type="text" value={wordEntered} onChange={handleFilter} />
           <button className="searchBtn" style={{ color: 'grey' }}><Search /></button>
         </div>
         {searchResults.length > 0 && (
           <div className="dataResult">
             {searchResults.map((result, idx) => {
               return (
-                <button key={idx} className="dataItem" onClick={() => navigate("/dashboard/set", { state: result.set_id })}>{result["set.set_name"]}</button>
+                <button key={idx} className="dataItem" onClick={() => handleFilterSearch(result)}>{result["set.set_name"]}</button>
               )
             })}
           </div>

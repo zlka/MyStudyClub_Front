@@ -60,61 +60,38 @@ function Edit() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setQuestion(question => question[0].toUpperCase() + question.slice(1) + "?")
     setQuestionSaved(true)
 
   }
   const handleAnswerSubmit = (e) => {
     e.preventDefault()
+    setAnswer(answer => answer[0].toUpperCase() + answer.slice(1) + ".")
     setAnswerSaved(true)
   }
-  const postFlashcard = (e) => {
-    if (!location.state) {
-      let data = JSON.stringify({
-        "question": question,
-        "answer": answer,
-        "set_id": 4,
+  const patchFlashcard = (e) => {
+
+    let data = JSON.stringify({
+      "question": question,
+      "answer": answer
+    });
+
+    var config = {
+      method: 'patch',
+      url: `https://my-study-club.herokuapp.com/flashcards/${location.state.id}`,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
       });
-
-      let config = {
-        method: 'post',
-        url: 'https://my-study-club.herokuapp.com/flashcards',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        data: data
-      };
-
-      axios(config)
-        .then(response => {
-          console.log(JSON.stringify(response.data));
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }
-    else {
-      let data = JSON.stringify({
-        "question": question,
-        "answer": answer
-      });
-
-      var config = {
-        method: 'patch',
-        url: `https://my-study-club.herokuapp.com/flashcards/${location.state.id}`,
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        data: data
-      };
-
-      axios(config)
-        .then(function (response) {
-          console.log(JSON.stringify(response.data));
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }
   }
 
   return (
@@ -127,11 +104,13 @@ function Edit() {
           <div className="box">
             
             <h2>Question</h2><div className="record" onClick={() => {
+              document.getElementById("question").focus()
               setQActive(true)
               setIsListening(prevState => !prevState)
             }}>{isListening && qActive ? <span className="record">🛑</span> : <span className="record">🎙️</span>}</div>
             {(!questionSaved) ?
               <input type="textarea"
+                id="question"
                 name="question"
                 onChange={(e) => setQuestion(e.target.value)}
                 value={question}
@@ -144,11 +123,13 @@ function Edit() {
         <form onSubmit={handleAnswerSubmit}>
           <div className="box">
             <h2>Answer</h2><div onClick={() => {
+              document.getElementById("answer").focus()
               setQActive(false)
               setIsListening(prevState => !prevState)
             }}>{isListening && !qActive ? <span className="record">🛑</span> : <span className="record">🎙️</span>}</div>
             {(!answerSaved) ?
               <input type="textarea"
+                id="answer"
                 name="answer"
                 onChange={(e) => setAnswer(e.target.value)}
                 value={answer}
@@ -162,8 +143,8 @@ function Edit() {
       
       <div style={{width:"100%",textAlign:"center"}}>
         <button className="saveBtn" onClick={() => {
-          postFlashcard()
-          navigate("/login/set")
+          patchFlashcard()
+          navigate("/dashboard/set", {state:location.state.set_id})
         }}>Save</button>
       </div>
       
@@ -172,22 +153,3 @@ function Edit() {
 }
 
 export default Edit
-
-
-/* <div className="box">
-          <h2>Current Note</h2>
-          {isListening ? <span>🎙️</span> : <span>🛑🎙️</span>}
-          <button className="e-btn" onClick={handleSaveNote} disabled={!note}>
-            Save Note
-          </button>
-          <button className="e-btn" onClick={() => setIsListening(prevState => !prevState)}>
-            Start/Stop
-          </button>
-          <p>{note}</p>
-        </div>
-        <div className="box">
-          <h2>Notes</h2>
-          {savedNotes.map(n => (
-            <p key={n}>{n}</p>
-          ))}
-        </div> */

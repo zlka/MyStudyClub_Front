@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { Footer, Header } from './layout'
+import { Footer, Header } from './Layout'
 import { CardView, NotFound, Dashboard2, Home, Game, Set, Edit, NewCard, ClubView } from './pages';
 import './App.css'
 

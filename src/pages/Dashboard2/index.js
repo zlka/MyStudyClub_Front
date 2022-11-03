@@ -10,7 +10,7 @@ function Dashboard2() {
 
   useEffect(() => {
     axios
-    .get('https://my-study-club.herokuapp.com/clubs')
+    .get(`https://my-study-club.herokuapp.com/studentclubs/${localStorage.getItem("student_id")}`)
     .then(res => {
       setClubs(res.data)
     })

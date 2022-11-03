@@ -29,7 +29,7 @@ const ClubCard = (props) => {
               onClick={() => navigate("/dashboard/practise",{state: props.id} )}>
                 <CardList /> View </button>
               <button 
-              onClick={() => navigate("/dashboard/test", {state: index})}><Back /> Test </button>
+              onClick={() => navigate("/dashboard/test", {state: props.id})}><Back /> Test </button>
             </div>
           </Card.Body>
           <Card.Footer className="text-muted">Club : {props.set}</Card.Footer>

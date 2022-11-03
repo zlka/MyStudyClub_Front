@@ -22,3 +22,7 @@ body {
     text-align: center;
     background:whitesmoke;
 }
+
+#club_link {
+  cursor: pointer;
+}

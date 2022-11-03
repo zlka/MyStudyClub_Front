@@ -36,7 +36,7 @@ const ClubView = () => {
     return (
             <div className="workouts">
             {sets ? sets.map(set => (
-                    <ClubCard  name={set.set_name} key={set.id} set={set["club.club_name"]} />
+                    <ClubCard  id={set.id} name={set.set_name} key={set.id} set={set["club.club_name"]} />
                 )) : <h3> Loading </h3>}
             </div>
         );   

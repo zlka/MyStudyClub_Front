@@ -12,19 +12,19 @@ const Home = () => {
       <div className="home">
       <section className="home-create">
         <img src={flashcard} alt="study page sc" />
-      <p style={{color:"#47ad96"}}> Easily create and test your knowledge with flashcards.</p>
+      <p style={{color:"#ecb348"}}> Easily create and test your knowledge with flashcards.</p>
 
       </section>
 
       <section className="home-test"> 
      
-      <p style={{color:"#3966af"}}>Challenge your friends in a fun memory game and claim the top of the leaderboard! </p>
+      <p style={{color:"#47ad96"}}>Challenge your friends in a fun memory game and claim the top of the leaderboard! </p>
       <img src={cards} alt="show test page" />
       </section>
 
       <section className="home-edit">
         <img src={test} alt="show set page " />
-      <p style={{color:"#ecb348"}}>Join a study group with friends and share revision cards with each other.Group passcodes ensure privacy of the group and in-chat messages.</p>
+      <p style={{color:"#3966af"}}>Join a study group with friends and share revision cards with each other.Group passcodes ensure privacy of the group and in-chat messages.</p>
     
       </section>
 

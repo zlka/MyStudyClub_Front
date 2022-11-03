@@ -3,8 +3,7 @@ import axios from 'axios';
 import './game.css'
 import { useNavigate, useLocation } from 'react-router-dom';
 import { GameCard, Timer, BackButton } from '../../components'
-// import set from 'date-fns/set/index.js';
-// import { setDefaultOptions } from 'date-fns/esm';
+
 const Game = () => {
     const location = useLocation()
     const [Cards, setCards] = useState([])
@@ -53,8 +52,6 @@ const Game = () => {
             Cards[clickId].match = "correct"
             setCards([...Cards])
             setClickId(-1)
-            console.log("cards",Cards.length)
-            console.log("pairs",pairs)
             setPairs(pairs => pairs + 2)
             
         } else {

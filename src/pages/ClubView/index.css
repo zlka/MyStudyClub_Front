@@ -1,10 +1,5 @@
 .clubView {
-    /* display: flex;
-    flex-direction: row; */
     margin: 10px 15vw;
-    /* margin-left: 15vw;
-    margin-right: 15vw; */
-    /* border: 2px solid red; */
 }
 
 
@@ -16,7 +11,6 @@
 }
 
 .newSet{
-    /* border: 2px solid green; */
     align-self: flex-end
 }
 
@@ -24,5 +18,4 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* border: 2px solid purple */
 }

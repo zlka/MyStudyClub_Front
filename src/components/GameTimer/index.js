@@ -16,6 +16,7 @@ const Timer = () => {
     
 
     return (
+        
         <div className="timer">
             <p>
             <span className="minute">
@@ -31,10 +32,3 @@ const Timer = () => {
 };
 
 export default Timer
-// useEffect(() => {
-    //     const startTimer = async () => {
-    //         setTime(time => time + 10);
-    //     }
-    //     startTimer()
-    // }, [time]) 
-      

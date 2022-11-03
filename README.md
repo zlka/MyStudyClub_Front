@@ -21,12 +21,12 @@ The aim was to develop a online flashcard application in which users could creat
 The site is deployed on [Netlify](https://mystudyclub.netlify.app/).
 
 ### Server
-The server is deployed on [Heroku](https://my-study-club.herokuapp.com/sets/2)
+The server is deployed on [Heroku](https://my-study-club.herokuapp.com/sets/2).
 
 ### To run locally
 - Clone or download the repo.
-- ```npm install``` to get all the required dependencies
-- ```npm run dev``` to initialise the server on localhost:3000
+- ```npm install``` to get all the required dependencies.
+- ```npm run dev``` to initialise the server on localhost:3000.
 - ```npm run test``` to run tests in jest.
 - ```npm run coverage``` to receive a coverage report of the tests.
 
@@ -35,11 +35,11 @@ The server is deployed on [Heroku](https://my-study-club.herokuapp.com/sets/2)
 - #### Back-End: Python, Flask, PostgreSQL
 
 ## Future Features
-- Including images in the flashcard
+- Including images in the flashcard.
 - Leader board or fastest time for the memory game.
-- Link to API to allow easier creation of cards
+- Link to API to allow easier creation of cards.
     - e.g. specific definitions for key words
-- Develop premium flashcards that link to exam board curriculum
+- Develop premium flashcards that link to exam board curriculum.
 
 ### Planning
 - #### Kanban Board: Trello

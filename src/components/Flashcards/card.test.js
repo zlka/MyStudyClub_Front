@@ -1,7 +1,6 @@
 import { screen } from '@testing-library/react';
 import { Card } from '..';
 import { createRoot } from 'react-dom/client';
-// const root = createRoot('Card');
 
 describe('Card', () => {
     beforeEach( () => {

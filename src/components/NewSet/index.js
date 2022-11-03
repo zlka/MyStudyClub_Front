@@ -27,7 +27,6 @@ const NewSet = (props) => {
           axios(config)
           .then(function (response) {
             console.log(JSON.stringify(response.data));
-            // console.log("id",response.data.id)
             navigate("/dashboard/set",{state:response.data.id})
 
           })

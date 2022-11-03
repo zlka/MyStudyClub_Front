@@ -1,23 +1,16 @@
 .card-grid{
-    /* border: 2px solid plum; */
     width: 70%;
     height: 100%;
     padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     text-align: center;
-    /* gap: 20px; */
 }
 
 #mainGame {
-    /* border: 2px solid red; */
     display: flex;
     justify-content: center;
     height: 100vh;
-    /* width: 100%;
-    margin-left: 0px;
-    margin-top: 10px;
-    margin-bottom: 0px; */
 }
 
 #endBtn{

@@ -2,7 +2,6 @@ import React from 'react'
 import Card from 'react-bootstrap/Card';
 import { useNavigate, useLocation } from 'react-router-dom'
 
-// import { Button } from 'react-bootstrap';
 import {Pencil, CardList, Back} from 'react-bootstrap-icons'
 import './clubcard.css'
 

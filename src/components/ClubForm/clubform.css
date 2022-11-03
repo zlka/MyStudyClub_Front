@@ -15,7 +15,6 @@
 }
 
 .create button {
-    /* border: 2px solid red; */
     background-color: white;
     color:teal;
     width: 100%
@@ -23,5 +22,4 @@
 
 #createGroupForm , .create label{
     margin-top: 20px;
-    /* border: 2px solid red; */
 }

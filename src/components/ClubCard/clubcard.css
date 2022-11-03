@@ -1,20 +1,16 @@
 .setBtn {
-    /* border: 2px solid red; */
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     gap: 10px;
 }
 
 .setBtn button {
-    /* border:2px solid green; */
     width: 30%;
     border: none;
     background-color: white;
 }
 .setBtn button:hover {
-    /* border:2px solid green; */
     width: 30%;
     color: teal;
     border: none;

@@ -4,7 +4,6 @@ import './index.css'
 import { useLocation } from 'react-router-dom'
 
 const ClubView = () => {
-    const things = [["Biology","6"],["Maths","4"],["Something","5"]]
     const location = useLocation()
     console.log(location.state)
 

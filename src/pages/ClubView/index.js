@@ -48,18 +48,20 @@ const ClubView = () => {
                 {sets ? sets.map(set => (
                     <ClubCard id={set.id} name={set.set_name} key={set.id} set={set["club.club_name"]} />
                 )) : <h3> Loading </h3>}
-            </div>
-            
-                <div className="newSet">
-                    <div onClick={addSet}>
-                        <button id="newSet" ><PlusCircle />Add a new set</button>
-                    </div>
 
-                    <div hidden={hidden}>
+                    <div >
+                        <button id="newSet" onClick={addSet}><PlusCircle />Add a new set</button>
+                        <div hidden={hidden}>
                         <NewSet id={location.state}/>
                     </div>
 
-                </div>
+                    </div>
+
+
+
+
+            </div>
+            
             
         </div>
         </>

@@ -26,7 +26,7 @@ const ClubCard = (props) => {
               onClick={() => navigate("/dashboard/set", { state: props.id })}>
                 <Pencil /> Edit </button>
               <button 
-              onClick={() => navigate("/dashboard/practise")}>
+              onClick={() => navigate("/dashboard/practise",{state: props.id} )}>
                 <CardList /> View </button>
               <button 
               onClick={() => navigate("/dashboard/test", {state: index})}><Back /> Test </button>

@@ -34,7 +34,6 @@ const NewSet = (props) => {
           .catch(function (error) {
             console.log(error);
           });
-
         
     };
 

@@ -3,17 +3,20 @@ import './CardView.css';
 import axios from 'axios';
 import { Card } from '../../components'
 import { CaretLeftFill,CaretRightFill } from 'react-bootstrap-icons';
+import { useLocation } from "react-router-dom";
 
 const CardView = () => {
     const [cardId, setCardId] = useState(0)
     const [flashcards, setFlashcards] = useState([])
     const [statusMessage, setStatusMessage] = useState('Loading');
+    const location = useLocation()
 
     useEffect(() => {
         const fetchFlashcards = async () => {
             setStatusMessage('Loading')
             try {
-                let { data } = await axios.get('https://my-study-club.herokuapp.com/flashcards/1')
+                let { data } = await axios.get(
+                `https://my-study-club.herokuapp.com/flashcards/${location.state}`)
                 setFlashcards(data)
                 setStatusMessage('')
             } catch (err) {

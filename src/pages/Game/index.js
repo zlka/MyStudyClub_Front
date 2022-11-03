@@ -14,11 +14,13 @@ const Game = () => {
     const [end, setEnd] = useState(false)
     const [pairs, setPairs] = useState(2)
     const navigate = useNavigate()
+
     
     useEffect(() => {
+        
         const fetchFlashcards = async () => {
             try {
-                let { data } = await axios.get('https://my-study-club.herokuapp.com/flashcards/1')
+                let { data } = await axios.get(`https://my-study-club.herokuapp.com/flashcards/${location.state}`)
                 shuffleCards(data)
             } catch (err) {
                 console.warn(err)

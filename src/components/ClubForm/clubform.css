@@ -20,3 +20,8 @@
     color:teal;
     width: 100%
 }
+
+#createGroupForm , .create label{
+    margin-top: 20px;
+    /* border: 2px solid red; */
+}

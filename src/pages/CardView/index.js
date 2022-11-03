@@ -44,8 +44,9 @@ const CardView = () => {
     };
     return (
         <>
-        <BackButton />
+        
             <div role="main" id="Cards">
+            <div id="leave"><BackButton/></div>
             {/* <h3>{ statusMessage ? statusMessage : <Card progress={`${flashcards[cardId].id} / ${flashcards.length}`} />}</h3>       */}
                 <CaretLeftFill id="arrow" onClick={previousQuestion} />
                     <div aria-label="card" id="card">

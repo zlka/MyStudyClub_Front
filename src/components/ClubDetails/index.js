@@ -1,9 +1,10 @@
-import React from 'react'
+import React,{useState }from 'react'
 import axios from 'axios';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { useNavigate } from 'react-router-dom';
 
 const ClubDetails = ({club}) => {
+    const [style,setStyle]=useState()
     const navigate = useNavigate();
     const handleClick = async () => {
 
@@ -34,9 +35,17 @@ const ClubDetails = ({club}) => {
       
     }
 
+    const changeStyle = () => {
+     
+    };
+    
 
     return (
-        <div className="club-details" >
+        <div className="club-details" 
+        style={style} 
+        onMouseEnter={() => setStyle({backgroundColor: "#f4f4f4"})}
+        onMouseLeave={() => setStyle({backgroundColor:"white"})}
+        >
           <h4 onClick={() => navigate("/dashboard/club", { state: club.id })}>{club.club_name}</h4>
           <p><strong>Club Code: </strong>{club.club_code}</p>
           <p>{formatDistanceToNow(new Date(club.created_at), { addSuffix: true })}</p>

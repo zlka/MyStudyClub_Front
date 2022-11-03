@@ -4,7 +4,7 @@ import axios from "axios"
 import logo from '../../static/logo.png'
 import './header.css'
 import { SignIn, SignUp } from '../../auth'
-import { XLg, Search } from 'react-bootstrap-icons';
+import { XLg, Search,House } from 'react-bootstrap-icons';
 
 
 function Header(props) {
@@ -22,7 +22,7 @@ function Header(props) {
       try {
         let { data } = await axios.get('https://my-study-club.herokuapp.com/flashcards')
         let newData = Array.from(new Set(data.map(d => d["set.set_name"]))).map(name => {
-          return data.find(d => d["set.set_name"]=== name)
+          return data.find(d => d["set.set_name"] === name)
         })
         // console.log("new",newData)
         setData(newData)
@@ -55,7 +55,7 @@ function Header(props) {
     navigate("/dashboard")
     navigate("/dashboard/set", { state: result.set_id })
   }
-  
+
 
   const openLoginModal = () => {
     setLogin("block")
@@ -74,63 +74,51 @@ function Header(props) {
   return (
     <header className="navHeader">
       <a href="/"><img src={logo} alt="my study club" /></a>
-      
+
 
       {localStorage.getItem('token') ?
         <div className='find'>
-        <div className="searchBar" >
-          <input id="search" className="search" type="text" value={wordEntered} onChange={handleFilter} />
-          <button className="searchBtn" style={{ color: 'grey' }}><Search /></button>
-        </div>
-        {searchResults.length > 0 && (
-          <div className="dataResult">
-            {searchResults.map((result, idx) => {
-              return (
-                <button key={idx} className="dataItem" onClick={() => handleFilterSearch(result)}>{result["set.set_name"]}</button>
-              )
-            })}
+          <div className="searchBar" >
+            <input id="search" className="search" type="text" value={wordEntered} onChange={handleFilter} />
+            <button className="searchBtn" style={{ color: 'grey' }}><Search /></button>
           </div>
-        )}
-      </div>
-        : 
+          {searchResults.length > 0 && (
+            <div className="dataResult">
+              {searchResults.map((result, idx) => {
+                return (
+                  <button key={idx} className="dataItem" onClick={() => handleFilterSearch(result)}>{result["set.set_name"]}</button>
+                )
+              })}
+            </div>
+          )}
+        </div>
+        :
         (
           <>
-          </>                        
+          </>
         )
-        }
-      {/* <div className='find' hidden={!hidden}>
-        <div className="searchBar" >
-          <input className="search" type="text" value={wordEntered} onChange={handleFilter} />
-          <button className="searchBtn" style={{ color: 'grey' }}><Search /></button>
-        </div>
-        {searchResults.length > 0 && (
-          <div className="dataResult">
-            {searchResults.map((result, idx) => {
-              return (
-                <button key={idx} className="dataItem" onClick={() => navigate("/dashboard/set", { state: result.set_id })}>{result["set.set_name"]}</button>
-              )
-            })}
-          </div>
-        )}
-      </div> */}
-
-
-
-
+      }
 
       <div className="registration" hidden={hidden}>
         {!localStorage.getItem('token') ?
-        <div><button id="login" onClick={openLoginModal} > Login  </button>  |
-        <button id="register" onClick={openLogoutModal}> Sign Up </button></div>
-        : 
-        (<div><a href="/dashboard" id="login"> {localStorage.getItem("username")}  </a>  | 
-        <button id="logout" onClick={() => {window.location.href = '/' 
-                                            localStorage.clear()}
-                                            }> Logout </button></div>
-                                            
-        )
+          <div><button id="login" onClick={openLoginModal} > Login  </button>  |
+            <button id="register" onClick={openLogoutModal}> Sign Up </button></div>
+          :
+          (
+          <div>
+            <a href="/dashboard" id="login"> Hello, {localStorage.getItem("username")}  <House />  </a>  |
+            <button id="logout" onClick={() => {
+              window.location.href = '/'
+              localStorage.clear()
+            }
+            }> Logout </button>
+            
+            </div>
+            
+
+          )
         }
-        
+
         <div className="modal" style={{ display: displayLogin }} >
           <div className="login-modal">
             <XLg onClick={closeLoginModal} className="exit-btn" />

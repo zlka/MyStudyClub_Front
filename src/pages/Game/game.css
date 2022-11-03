@@ -19,3 +19,18 @@
     margin-top: 10px;
     margin-bottom: 0px; */
 }
+
+#endBtn{
+    position: absolute;
+    height: 10%;
+    margin: 30vh;
+    border: none;
+    color: green;
+    border-bottom: 2px solid teal;
+    background-color: white;
+    padding: 30px 30px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 50px;
+}
+
+

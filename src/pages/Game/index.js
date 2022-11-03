@@ -36,8 +36,10 @@ const Game = () => {
 
     const onCardClick = (id) => {
         if (clickId === -1) {
+
             setClickId(id)
         } else {
+
             check(id)
         }
     };
@@ -70,7 +72,7 @@ const Game = () => {
     }
 
     const endGame = () => {
-        pairs === Cards.length ? setEnd(true) : setEnd(false)
+        pairs === Cards.length && clickId % 2 == 0 ? setEnd(true) : setEnd(false)
     }
 
 

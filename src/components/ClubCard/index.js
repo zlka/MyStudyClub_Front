@@ -28,11 +28,7 @@ const ClubCard = (props) => {
               onClick={() => navigate("/dashboard/test")}><Back /> Test </button>
             </div>
           </Card.Body>
-<<<<<<< HEAD
-          <Card.Footer className="textpor-muted">Sets : {props.set}</Card.Footer>
-=======
           <Card.Footer className="text-muted">Club : {props.set}</Card.Footer>
->>>>>>> 2f54b25b08c789b6ab4f4ca6e5dad9622356d017
         </Card>
       );
 }

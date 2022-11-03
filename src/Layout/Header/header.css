@@ -55,7 +55,10 @@ color: teal;
     border-radius: 15px;
     /* border: 2px solid red; */
   }
-  
+  .register-modal{
+    /* border: 2px solid green; */
+    margin-top: 5%;
+  }
   .exit-btn:hover{
     color:red;
     cursor: pointer;
@@ -78,7 +81,7 @@ color: teal;
     /* border: 2px solid blue; */
   }
   .searchBar:hover{
-    border: 1.6px solid rgb(208, 202, 202);
+    border-bottom: 2px solid rgb(208, 202, 202);
   }
 
   .search,.searchBtn{
@@ -95,7 +98,7 @@ color: teal;
   }
 
   .dataResult {
-    margin-top: 250px;
+    margin-top: 100px;
     width: 200px;
     /* height: 200px; */
     position: absolute;

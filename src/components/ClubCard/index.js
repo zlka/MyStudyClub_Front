@@ -1,8 +1,12 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
-import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom'
+// import { Button } from 'react-bootstrap';
+import {Pencil, CardList, Back} from 'react-bootstrap-icons'
+import './clubcard.css'
 
 const ClubCard = (props) => {
+  const navigate = useNavigate()
 
     return (
         <Card 
@@ -13,12 +17,22 @@ const ClubCard = (props) => {
           </Card.Header>
           <Card.Body>
             <Card.Title></Card.Title>
-            <Card.Text>
-              Some info here? 
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <div className="setBtn"> 
+              <button 
+              onClick={() => navigate("/dashboard/edit")}>
+                <Pencil /> Edit </button>
+              <button 
+              onClick={() => navigate("/dashboard/practise")}>
+                <CardList /> View </button>
+              <button 
+              onClick={() => navigate("/dashboard/test")}><Back /> Test </button>
+            </div>
           </Card.Body>
+<<<<<<< HEAD
           <Card.Footer className="textpor-muted">Sets : {props.set}</Card.Footer>
+=======
+          <Card.Footer className="text-muted">Club : {props.set}</Card.Footer>
+>>>>>>> 2f54b25b08c789b6ab4f4ca6e5dad9622356d017
         </Card>
       );
 }

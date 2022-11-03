@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import {ArrowLeft, NodeMinus} from 'react-bootstrap-icons'
+import {ArrowLeft} from 'react-bootstrap-icons'
 
 const BackButton = () => {
     const goTo = useNavigate();

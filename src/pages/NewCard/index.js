@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {useLocation, useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import { BackButton } from '../../components';
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition
@@ -58,11 +59,13 @@ function NewCard() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setQuestion(question => question[0].toUpperCase() + question.slice(1) + "?")
     setQuestionSaved(true)
 
   }
   const handleAnswerSubmit = (e) => {
     e.preventDefault()
+    setAnswer(answer => answer[0].toUpperCase() + answer.slice(1) + ".")
     setAnswerSaved(true)
   }
   const postFlashcard = (e) => {
@@ -92,17 +95,20 @@ function NewCard() {
 
   return (
     <>
-      <h1>Flashcard</h1>
+    <BackButton />
       <div className="container_v">
         <form  onSubmit={handleSubmit}>
           <div className="box">
             <h2>Question</h2><div className="record" onClick={() => {
+                                                  document.getElementById("question").focus()
                                                   setQActive(true)
                                                   setIsListening(prevState => !prevState)
                                                   }}>{isListening && qActive ? <span className="record">🛑</span> : <span className="record">🎙️</span>}</div>
             {(!questionSaved) ?
             <input type="textarea"
+              id="question"
               name="question"
+              focus = "true"
               onChange={(e) => setQuestion(e.target.value)}
               value={question}
             />
@@ -113,12 +119,13 @@ function NewCard() {
         </form>
         <form  onSubmit={handleAnswerSubmit}>
           <div className="box">
-            <h2>Answer</h2><div onClick={() => {
+            <h2>Answer</h2><div onClick={() => {document.getElementById("answer").focus()
                                                   setQActive(false)
                                                   setIsListening(prevState => !prevState)
                                                   }}>{isListening && !qActive ? <span className="record">🛑</span> : <span className="record">🎙️</span>}</div>
             {(!answerSaved) ?
-            <input type="textarea" 
+            <input type="textarea"
+              id="answer"
               name="answer"
               onChange={(e) => setAnswer(e.target.value)} 
               value={answer}
@@ -129,10 +136,12 @@ function NewCard() {
           </div>
         </form>
       </div>
-      <button onClick={() => {
-                            postFlashcard()
-                            navigate("/dashboard/set", {state:location.state})
-                            }}>Save</button>
+      <div style={{width:"100%",textAlign:"center"}}>
+        <button className="saveBtn" onClick={() => {
+                              postFlashcard()
+                              navigate("/dashboard/set", {state:location.state})
+                              }}>Save</button>
+      </div>
     </>
   )
 }

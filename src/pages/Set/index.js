@@ -22,9 +22,9 @@ function Set() {
       setFlashcards(res)
     }).catch((error) => {
       if (error.response) {
-        console.log(error.response)
-        console.log(error.response.status)
-        console.log(error.response.headers)
+        console.warn(error.response)
+        console.warn(error.response.status)
+        console.warn(error.response.headers)
         }
     })
   }, [flashcards, setId])

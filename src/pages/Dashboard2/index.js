@@ -1,8 +1,7 @@
 import axios from 'axios';
 import {useEffect, useState } from 'react';
 import './dashboard2.css';
-// components
-import { ClubDetails, ClubForm } from "../../components"
+import { BackButton, ClubDetails, ClubForm } from "../../components"
 
 
 function Dashboard2() {
@@ -10,14 +9,16 @@ function Dashboard2() {
 
   useEffect(() => {
     axios
-    .get('https://my-study-club.herokuapp.com/clubs')
+    .get(`https://my-study-club.herokuapp.com/studentclubs/${localStorage.getItem("student_id")}`)
     .then(res => {
       setClubs(res.data)
     })
   }, [clubs])
 
   return (
+    <> <BackButton />
     <div className="home-dash">
+      
       <div className="workouts">
         {clubs ? clubs.map(club => (
               <ClubDetails club={club} key={club.id} />
@@ -25,6 +26,7 @@ function Dashboard2() {
       </div>
       <ClubForm />
     </div>
+    </>
   );
 }
 

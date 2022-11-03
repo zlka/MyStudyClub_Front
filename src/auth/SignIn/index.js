@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { redirect, useNavigate } from 'react-router-dom'
 import { setAuthToken } from '../../helpers/setAuthToken'
 import axios from 'axios';
 import './login.css'
@@ -28,6 +27,10 @@ const SignIn = (props) => {
         const userToken = response.data.access_token
         //set JWT token to local
         localStorage.setItem('token', userToken)
+        //add user id to localstorage
+        localStorage.setItem('student_id', response.data.student_id)
+        //add username to localstorage
+        localStorage.setItem('username', response.data.user_name)
         //set token to axios common header
         setAuthToken(userToken);
         //redirect user to dashboard page
@@ -39,7 +42,6 @@ const SignIn = (props) => {
           console.warn(error.response.status)
           console.warn(error.response.headers)
           setHidden(false)
-          console.log('error', hidden)
         }
       })
 
@@ -64,20 +66,24 @@ const SignIn = (props) => {
 
         <label>Email address</label>
         <input onChange={handleChange}
+        className="formInput"
           type="email"
           text={loginForm.email}
           name="email"
-          value={loginForm.email} />
+          value={loginForm.email} 
+          required/>
 
         <label>Password</label>
         <input onChange={handleChange}
+        className="formInput"
           type="password"
           text={loginForm.password}
           name="password"
-          value={loginForm.password} />
+          value={loginForm.password} 
+          required/>
 
-        <button id="submit" onClick={logMeIn}>Log In</button>
-        <p hidden={hidden}> Please check you email or password</p>
+        <button id="submitLog" onClick={logMeIn}>Log In</button>
+        <p hidden={hidden} style={{color:"orange"}}> Please check your email or password</p>
         
       </form>
       {/* <Form className='login'>

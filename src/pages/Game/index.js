@@ -11,7 +11,7 @@ const Game = () => {
     const [clickId, setClickId] = useState(-1)
     const [load, setLoad] = useState(true)
     const [end, setEnd] = useState(false)
-    const [pairs, setPairs] = useState(0)
+    const [pairs, setPairs] = useState(2)
     const navigate = useNavigate()
     useEffect(() => {
         const fetchFlashcards = async () => {
@@ -48,7 +48,10 @@ const Game = () => {
             Cards[clickId].match = "correct"
             setCards([...Cards])
             setClickId(-1)
+            console.log("cards",Cards.length)
+            console.log("pairs",pairs)
             setPairs(pairs => pairs + 2)
+            
         } else {
             Cards[current].match = "wrong"
             Cards[clickId].match = "wrong"
@@ -67,7 +70,7 @@ const Game = () => {
     }
 
     const endGame = () => {
-        pairs.length === Cards.length ? setEnd(true) : setEnd(false)
+        pairs === Cards.length ? setEnd(true) : setEnd(false)
     }
 
 

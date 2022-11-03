@@ -14,6 +14,7 @@ const Game = () => {
     const [end, setEnd] = useState(false)
     const [pairs, setPairs] = useState(2)
     const navigate = useNavigate()
+    
     useEffect(() => {
         const fetchFlashcards = async () => {
             try {

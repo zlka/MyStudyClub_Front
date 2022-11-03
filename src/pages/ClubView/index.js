@@ -41,20 +41,21 @@ const ClubView = () => {
 
     return (
         <>             
-        <BackButton/>
+        <BackButton/><h3>Sets</h3>
         
         <div className="clubView">
             <div className="clubs">
                 {sets ? sets.map(set => (
                     <ClubCard id={set.id} name={set.set_name} key={set.id} set={set["club.club_name"]} />
-                )) : <h3> Loading </h3>}
+                )) :<h3> Loading... </h3>} 
 
                     <div >
+                        {sets && <>
                         <button id="newSet" onClick={addSet}><PlusCircle />Add a new set</button>
                         <div hidden={hidden}>
-                        <NewSet id={location.state}/>
-                    </div>
-
+                            <NewSet id={location.state}/>
+                        </div></>
+                        }
                     </div>
 
 

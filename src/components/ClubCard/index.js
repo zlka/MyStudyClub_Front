@@ -23,7 +23,11 @@ const ClubCard = (props) => {
             <Card.Title></Card.Title>
             <div className="setBtn"> 
               <button 
+<<<<<<< HEAD
+              onClick={() => navigate("/dashboard/edit") }>
+=======
               onClick={() => navigate("/dashboard/set", { state: props.id })}>
+>>>>>>> 384a8c267de35100f3e565ba8f971f5e35961214
                 <Pencil /> Edit </button>
               <button 
               onClick={() => navigate("/dashboard/practise")}>

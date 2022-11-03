@@ -11,4 +11,5 @@ export { default as Flashcard } from './Flashcard'
 export { default as FlashcardList } from './FlashcardList'
 export { default as ClubDetails } from './ClubDetails'
 export { default as ClubForm } from './ClubForm'
+export { default as NewSet } from './NewSet'
 

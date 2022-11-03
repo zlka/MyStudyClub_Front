@@ -1,6 +1,28 @@
-.main {
+.clubView {
+    /* display: flex;
+    flex-direction: row; */
+    margin: 10px 15vw;
+    /* margin-left: 15vw;
+    margin-right: 15vw; */
+    /* border: 2px solid red; */
+}
+
+
+#newSet{
+    font-size :20px;
+    color: teal;
+    background-color: white;
+    border: none;
+}
+
+.newSet{
+    /* border: 2px solid green; */
+    align-self: flex-end
+}
+
+.clubs{
     display: flex;
     flex-direction: row;
-    margin-left: 15vw;
-    margin-right: 15vw;
+    flex-wrap: wrap;
+    /* border: 2px solid purple */
 }

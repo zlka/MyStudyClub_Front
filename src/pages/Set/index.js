@@ -33,7 +33,7 @@ function Set() {
     <>
     <BackButton />
       <div className="s-container">
-        {flashcards ? <FlashcardList flashcards={flashcards} /> : <h3> Loading... </h3>}
+        {flashcards ? <FlashcardList id = {setId} flashcards={flashcards} /> : <h3> Loading... </h3>}
       </div>
     </>
   );

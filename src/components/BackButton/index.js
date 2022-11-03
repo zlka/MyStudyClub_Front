@@ -9,7 +9,7 @@ const BackButton = () => {
         cursor: 'pointer',
         border: 'none',
         fontSize:'25px',
-        backgroundColor:'white',
+        backgroundColor:'transparent',
         color:'teal',
         marginLeft: '20px',
         marginBottom: '0px'

@@ -67,9 +67,9 @@ const ClubForm = () => {
     return (
       <div>
         <form className="create" onSubmit={handleSubmit} id='createGroupForm'> 
-          <h3>Create New Club</h3>
+          <h3>Create a new Club</h3>
     
-          <label>Club Name</label>
+          <label>Name</label>
           <input 
             className="clubForm"
             type="text" 

@@ -24,3 +24,7 @@
 #card {
     margin-top:20px;
 }
+
+#leave{
+    align-self: flex-start;
+}

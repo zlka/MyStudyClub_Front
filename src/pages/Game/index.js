@@ -92,7 +92,7 @@ const Game = () => {
         </div>
             {
             end ? 
-            <button id="endBtn"onClick={() => navigate('/dashboard/club', {state: location.state})}>End Game </button> 
+            <button id="endBtn" onClick={() => navigate('/dashboard/club', {state: location.state})}>End Game </button> 
             
 
             :

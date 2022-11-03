@@ -14,13 +14,14 @@ const ClubCard = (props) => {
 
     return (
         <Card 
-        style={{ width: '18rem' }}
+        
+        style={{ width: '18rem'}}
         className="m-3">
-          <Card.Header>
+          <Card.Header style={{backgroundColor:"whitesmoke",color:"teal"}}>
           {props.name}
           </Card.Header>
           <Card.Body>
-            <Card.Title></Card.Title>
+            <Card.Title  ></Card.Title>
             <div className="setBtn">
               <button 
               onClick={() => navigate("/dashboard/set", { state: props.id })}>
@@ -32,7 +33,7 @@ const ClubCard = (props) => {
               onClick={() => navigate("/dashboard/test", {state: props.id})}><Back /> Test </button>
             </div>
           </Card.Body>
-          <Card.Footer className="text-muted">Club : {props.set}</Card.Footer>
+          <Card.Footer style={{backgroundColor:"whitesmoke"}}className="text-muted">Club : {props.set}</Card.Footer>
         </Card>
       );
 }

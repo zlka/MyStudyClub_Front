@@ -18,13 +18,13 @@ const Home = () => {
 
       <section className="home-test"> 
      
-      <p style={{color:"#47ad96"}}>Challenge your friends in a fun memory game and claim the top of the leaderboard! </p>
+      <p style={{color:"#47ad96"}}>Apply recognition learning as a memory technique in the card matching game.</p>
       <img src={cards} alt="show test page" />
       </section>
 
       <section className="home-edit">
         <img src={test} alt="show set page " />
-      <p style={{color:"#3966af"}}>Join a study group with friends and share revision cards with each other.Group passcodes ensure privacy of the group and in-chat messages.</p>
+      <p style={{color:"#3966af"}}>Create or join a study clubs to share revision cards with each other.Group passcodes ensure privacy of the group.</p>
     
       </section>
 

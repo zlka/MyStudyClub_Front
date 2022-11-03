@@ -21,10 +21,11 @@ function Header(props) {
     const fetchData = async () => {
       try {
         let { data } = await axios.get('https://my-study-club.herokuapp.com/flashcards')
+        console.log("old",data)
         let newData = Array.from(new Set(data.map(d => d["set.set_name"]))).map(name => {
           return data.find(d => d["set.set_name"] === name)
         })
-        // console.log("new",newData)
+        console.log("new",newData)
         setData(newData)
       } catch (err) {
         console.log("doesn't work")
@@ -39,13 +40,14 @@ function Header(props) {
     setWordEntered(searchWord);
 
     const newFilter = data.filter((result) => {
-      return result["set.set_name"].toLowerCase().includes(searchWord.toLowerCase());
+      return setResults(result["set.set_name"].toLowerCase().includes(searchWord.toLowerCase()))
+      ;
     });
 
     if (searchWord === "") {
       setResults([]);
     } else {
-      setResults(newFilter);
+      newFilter();
     }
   };
 

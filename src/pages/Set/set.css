@@ -38,7 +38,7 @@
     background-color: hsl(200, 100%, 40%);
 }
 
-.card-grid {
+.s-card-grid {
     display: grid;
     align-items: center;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

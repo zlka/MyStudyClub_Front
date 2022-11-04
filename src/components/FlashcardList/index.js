@@ -12,7 +12,7 @@ export default function FlashcardList({ id, flashcards }) {
     content: ' add new flashcard'
   }
   return (
-    <div className="card-grid">
+    <div className="s-card-grid">
         {flashcards.map(flashcard => {
             return <Flashcard flashcard={flashcard} key={flashcard.id} />
         })}
